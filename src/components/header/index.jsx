@@ -8,6 +8,7 @@ function Header(){
     const headerRef2 = useRef(null);
     const headerRef3 = useRef(null);
     const [arrayMethod, handleChange] = useState(null);
+    const [styleHeading, handleStyle] = useState({});
     useEffect(() => {
         TweenMax
             .to(headerRef1.current, 1, {
@@ -20,7 +21,14 @@ function Header(){
             .delay(0.3);
         TweenMax
             .to(headerRef3.current, 1, {
-                bottom: '0', y: 0
+                bottom: '0', y: 0,
+                onComplete: () => {
+                    handleStyle({
+                        boxShadow: '0 0 0 1px hsla(0, 0%, 0%, 0), 0px -1px 20px 7px hsl(0, 0%, 0%)',
+                        padding: '10px',
+                        borderRadius: '17px'
+                    })
+                }
             })
             .delay(0.5);    
     })
@@ -40,9 +48,10 @@ function Header(){
                     components={{
                         IndicatorSeparator: () => null
                     }}
+                    placeholder="Select Method"
                 />
             </nav>
-            <div className="heading">
+            <div className="heading" style={styleHeading}>
                 <span className="heading__text heading__text--1"  ref={headerRef1}>Animate</span>  
                 <span className="heading__text heading__text--2"  ref={headerRef2}>Array</span>
                 <span className="heading__text heading__text--3"  ref={headerRef3}>Methods</span>

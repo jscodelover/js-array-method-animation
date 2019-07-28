@@ -9,12 +9,12 @@ const HeaderStyle = style.div`
     clip-path: polygon(0% 0%, 0% 100%, 100% 85%, 100% 0% );
     nav{
         position: absolute;
-        top: 5px;
-        right: 20px;
+        top: 10px;
+        right: 30px;
     }
     .heading{
         position: absolute;
-        top: 40%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 80px;

@@ -11,7 +11,7 @@ const HeaderStyle = style.div`
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 60px;
+        font-size: 80px;
         font-family: "Raleway";
         font-weight: 800;
         letter-spacing: 0.05em;
@@ -21,8 +21,8 @@ const HeaderStyle = style.div`
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
-            width: 453px;
-            line-height: 81px;
+            width: 362px;
+            line-height: 64px;
             text-align: center;
         }
     }

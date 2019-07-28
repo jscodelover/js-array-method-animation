@@ -1,9 +1,13 @@
 import React from 'react';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
 import Header from './components/header';
 
 function App() {
-	return <Header />;
+	return (
+		<React.Fragment>
+			<Header />
+		</React.Fragment>
+	);
 }
 
 export default App;

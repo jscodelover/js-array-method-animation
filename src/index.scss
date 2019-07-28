@@ -23,6 +23,11 @@ body {
 	line-height: 1.4;
 	background: #fff;
 	text-size-adjust: auto;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	&::-webkit-scrollbar {
+		width: 0 !important;
+	}
 }
 
 code {
@@ -53,11 +58,13 @@ code {
 		box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;
 	}
 	&__option {
+		text-align: center;
 		&--is-focused {
-			background-color: transparent !important;
+			background-color: #0606064a !important;
 		}
 		&--is-selected {
-			background-image: linear-gradient(to right, #f85314, #97ba62, #0b7e91);
+			background-image: linear-gradient(to right, #defb7d, #97ba62, #0b7e91);
+			// background-image: linear-gradient(to right,#f85314, #97ba62, #0b7e91);
 		}
 	}
 	&__indicator {

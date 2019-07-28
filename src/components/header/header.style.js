@@ -7,11 +7,6 @@ const HeaderStyle = style.div`
     background-position: bottom;
     position: relative;
     clip-path: polygon(0% 0%, 0% 100%, 100% 85%, 100% 0% );
-    nav{
-        position: absolute;
-        top: 10px;
-        right: 30px;
-    }
     .heading{
         position: absolute;
         top: 46%;
@@ -48,10 +43,6 @@ const HeaderStyle = style.div`
         @media(max-width: 628px){
             font-size: 
         }
-    }
-    @media(max-width: 628px){
-        background-repeat: no-repeat;
-        background-position: 67% 50%;
     }
 `;
 

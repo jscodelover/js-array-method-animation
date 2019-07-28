@@ -6,7 +6,12 @@ const HeaderStyle = style.div`
     background-size: cover;
     background-position: bottom;
     position: relative;
-    clip-path: polygon(0% 0%, 0% 100%, 100% 78%, 100% 0% );
+    clip-path: polygon(0% 0%, 0% 100%, 100% 85%, 100% 0% );
+    nav{
+        position: absolute;
+        top: 5px;
+        right: 20px;
+    }
     .heading{
         position: absolute;
         top: 40%;

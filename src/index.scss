@@ -18,6 +18,7 @@ body {
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-variant: none;
 	font-size: 14px;
 	line-height: 1.4;
 	background: #fff;
@@ -27,4 +28,45 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
+}
+
+/* react-select */
+.customSelect {
+	&__control {
+		width: 120px;
+		background-color: transparent !important;
+		text-overflow: ellipsis;
+		border-color: transparent !important;
+		box-shadow: none !important;
+		cursor: pointer;
+		&--menu-is-open:hover {
+			border-color: #6d6c6c82 !important;
+			box-shadow: none;
+		}
+	}
+
+	&__menu {
+		margin-top: 1px !important;
+		width: 120px !important;
+		background-color: transparent !important;
+		color: #fff;
+		box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;
+	}
+	&__option {
+		&--is-focused {
+			background-color: #6d6c6c82 !important;
+		}
+		&--is-selected {
+			background-image: linear-gradient(to right, #f85314, #97ba62, #0b7e91);
+		}
+	}
+	&__indicator {
+		svg {
+			color: #fff;
+		}
+	}
+	&__single-value,
+	&__placeholder {
+		color: #fff !important;
+	}
 }

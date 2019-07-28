@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import { TweenLite, Power3 } from 'gsap';
-import { NavStyle } from './nav.style';
+import { NavStyle, SideBar, BackDrop } from './nav.style';
 
 function Nav() {
 	const [arrayMethod, handleChange] = useState(null);
+	const [screenWidth, handleResize] = useState(window.innerWidth);
+	const [showMenu, handleMenu] = useState(false);
 	const navRef = useRef(null);
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
@@ -15,6 +17,7 @@ function Nav() {
 		};
 	});
 	function handleScroll() {
+		handleResize(window.innerWidth);
 		if (
 			(window.pageYOffset > 500 || window.innerWidth < 628) &&
 			window.pageYOffset > 20
@@ -31,7 +34,6 @@ function Nav() {
 			});
 		}
 	}
-
 	const options = [
 		{ value: 'filter', label: 'Filter' },
 		{ value: 'map', label: 'Map' },
@@ -39,26 +41,40 @@ function Nav() {
 		{ value: 'find', label: 'Find' },
 		{ value: 'findIndex', label: 'Find Index' }
 	];
-	return (
+	const navItems = (
+		<ul>
+			<li>Home</li>
+			<li>
+				<Select
+					classNamePrefix='customSelect'
+					value={arrayMethod}
+					onChange={data => {
+						handleChange(data);
+					}}
+					options={options}
+					components={{
+						IndicatorSeparator: () => null
+					}}
+					placeholder='Select Method'
+				/>
+			</li>
+			<li>About Me</li>
+		</ul>
+	);
+	return showMenu ? (
+		<SideBar>
+			<BackDrop />
+			<NavStyle>{navItems}</NavStyle>
+		</SideBar>
+	) : (
 		<NavStyle ref={navRef}>
-			<ul>
-				<li>Home</li>
-				<li>
-					<Select
-						classNamePrefix='customSelect'
-						value={arrayMethod}
-						onChange={data => {
-							handleChange(data);
-						}}
-						options={options}
-						components={{
-							IndicatorSeparator: () => null
-						}}
-						placeholder='Select Method'
-					/>
-				</li>
-				<li>About Me</li>
-			</ul>
+			{screenWidth > 628 ? (
+				navItems
+			) : (
+				<button className='menu-btn' onClick={() => handleMenu(true)}>
+					<img src='/image/menu.svg' alt='menu' />
+				</button>
+			)}
 		</NavStyle>
 	);
 }

@@ -2,10 +2,11 @@ import style from 'styled-components';
 
 const HeaderStyle = style.div`
     height: 80vh;
-    background-image: url('image/background.svg');
+    background: url("https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") repeat;
     background-size: cover;
     background-position: bottom;
     position: relative;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 78%, 100% 0% );
     .heading{
         position: absolute;
         top: 40%;
@@ -15,16 +16,37 @@ const HeaderStyle = style.div`
         font-family: "Raleway";
         font-weight: 800;
         letter-spacing: 0.05em;
-        &--text{  
-            background: url("https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") repeat;
-            background-position: 40% 50%;
+        line-height: 1.1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__text{    
+            position: relative;  
+            background-image: linear-gradient(to right, #f85314, #97ba62, #0b7e91);
+            text-shadow: 6px 2px 0px rgb(255, 255, 255);
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
-            width: 362px;
-            line-height: 64px;
             text-align: center;
+            &--1{
+                top: -70%;
+            }
+            &--2{
+                right: -200%
+            }
+            &--3{
+                transform: translateY(300px);
+                bottom: -200%;
+            }
         }
+        @media(max-width: 628px){
+            font-size: 
+        }
+    }
+    @media(max-width: 628px){
+        background-repeat: no-repeat;
+        background-position: 67% 50%;
     }
 `;
 

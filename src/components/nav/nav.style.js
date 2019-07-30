@@ -5,7 +5,7 @@ const NavStyle = style.nav`
     top: 0px;
     width: 100%;
     height: 50px;
-    padding: 6px 30px;
+    padding: 6px 80px;
     z-index: 10;
     ul{
         text-align: right;
@@ -28,7 +28,7 @@ const NavStyle = style.nav`
         width: 38px;
         height: 38px;
         cursor: pointer;
-        margin-left: -15px;
+        margin-left: -65px;
         background-color: transparent;
         img{
             width: inherit;

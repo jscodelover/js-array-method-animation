@@ -1,4 +1,5 @@
 import style from 'styled-components';
+import theme from '../../style/theme';
 
 const HeaderStyle = style.div`
     height: 80vh;
@@ -23,8 +24,10 @@ const HeaderStyle = style.div`
         align-items: center;
         &__text{    
             position: relative;  
-            background-image: linear-gradient(to right, #f85314, #97ba62, #0b7e91);
-            text-shadow: 6px 2px 0px rgb(255, 255, 255);
+            background-image: linear-gradient(to right, ${
+							theme.colors.primaryColor
+						}, ${theme.colors.secondaryColor}, ${theme.colors.ternaryColor});
+            text-shadow: 6px 2px 0px ${theme.colors.white};
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;

@@ -1,4 +1,5 @@
 import style from 'styled-components';
+import theme from '../../style/theme';
 
 const NavStyle = style.nav`
     position: fixed;
@@ -15,7 +16,7 @@ const NavStyle = style.nav`
         align-items: baseline;    
         justify-content: flex-end;
         li{
-            color: #fff;
+            color: ${theme.colors.white};
             font-weight: 600;
             cursor: pointer;
             &:nth-child(2){
@@ -74,7 +75,7 @@ const SideBar = style.div`
 
 const BackDrop = style.div`
     position: fixed;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0,0,0,0.8);
     top: 0;
     left: 0;
     right: 0;

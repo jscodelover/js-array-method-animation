@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from './components/header';
-import Nav from './components/nav';
-import Home from './container/Home';
+
+const Header = lazy(() => import('./components/header'));
+const Nav = lazy(() => import('./components/nav'));
+const Home = lazy(() => import('./container/Home'));
 
 function App() {
 	return (
-		<React.Fragment>
+		<Suspense fallback={<h1>Loading...</h1>}>
 			<Nav />
 			<Header />
 			<Switch>
-				<Route path='/' component={Home} />
+				<Route path='/' render={() => <Home />} />
 			</Switch>
-		</React.Fragment>
+		</Suspense>
 	);
 }
 

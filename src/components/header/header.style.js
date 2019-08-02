@@ -3,7 +3,7 @@ import theme from '../../style/theme';
 
 const HeaderStyle = style.div`
     height: 80vh;
-    background: url("https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") repeat;
+    background: url("/image/header-bg.jpg") repeat;
     background-size: cover;
     background-position: bottom;
     position: relative;

@@ -2,6 +2,16 @@
   "name": "js-array-method-animation",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "js",
+    "array methods",
+    "gsap",
+    "animaiton",
+    "reactjs"
+  ],
+  "license": "MIT",
+  "auther": "jscodelover",
+  "main": "index.js",
   "dependencies": {
     "gsap": "^2.1.3",
     "node-sass": "^4.12.0",
@@ -32,5 +42,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jscodelover/js-array-method-animation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jscodelover/js-array-method-animation.git/issues"
   }
 }

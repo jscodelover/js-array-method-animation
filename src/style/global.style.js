@@ -55,6 +55,16 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
     }
 
+    .backdrop{
+        position: fixed;
+        background-color: rgba(0,0,0,0.8);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9;
+    }
+
     /* react-select */
 
     .customSelect {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import { TweenLite, Power3 } from 'gsap';
-import { NavStyle, SideBar, BackDrop } from './nav.style';
+import { NavStyle, SideBar } from './nav.style';
 
 function Nav() {
 	const [arrayMethod, handleChange] = useState(null);
@@ -76,7 +76,7 @@ function Nav() {
 	);
 	return showMenu ? (
 		<SideBar>
-			<BackDrop />
+			<div className='backdrop' />
 			<NavStyle>{navItems}</NavStyle>
 		</SideBar>
 	) : (

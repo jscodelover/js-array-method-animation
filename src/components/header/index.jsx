@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { TweenMax } from 'gsap';
 import { HeaderStyle } from './header.style';
+import ProgressiveImage from '../ProgressiveImage';
 
 function Header(){
     const headerRef1 = useRef(null);
     const headerRef2 = useRef(null);
     const headerRef3 = useRef(null);
     const [styleHeading, handleStyle] = useState({});
+
     useEffect(() => {
         TweenMax
             .to(headerRef1.current, 1, {
@@ -30,8 +32,10 @@ function Header(){
             })
             .delay(0.5);    
     },[])
+    
     return (
         <HeaderStyle>
+            <ProgressiveImage className="image-header" alt="bg-image" src="/image/header-bg.jpg" overlaySrc="/image/header-bg-low.jpg" />
             <div className="heading" style={styleHeading}>
                 <span className="heading__text heading__text--1"  ref={headerRef1}>Animate</span>  
                 <span className="heading__text heading__text--2"  ref={headerRef2}>Array</span>

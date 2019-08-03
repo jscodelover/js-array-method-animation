@@ -23,8 +23,7 @@ function Nav() {
 			window.pageYOffset > 20
 		) {
 			TweenLite.to(navRef.current, 1, {
-				backgroundImage:
-					'url("https://phandroid.s3.amazonaws.com/wp-content/uploads/2014/05/rainbow-nebula.jpg") ',
+				backgroundImage: 'url("/image/header-bg.jpg") ',
 				ease: Power3.easeOut
 			});
 		} else {

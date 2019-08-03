@@ -3,11 +3,13 @@ import theme from '../../style/theme';
 
 const HeaderStyle = style.div`
     height: 80vh;
-    background: url("/image/header-bg.jpg") repeat;
-    background-size: cover;
-    background-position: bottom;
     position: relative;
-    clip-path: polygon(0% 0%, 0% 100%, 100% 85%, 100% 0% );
+    clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
+    .image-header{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     .heading{
         position: absolute;
         top: 46%;

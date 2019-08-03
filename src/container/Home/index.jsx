@@ -7,6 +7,10 @@ function Home(){
         <HomeStyle>
             <Button type="btn">Previous</Button>
             <Button type="btn">Next</Button>
+            <img
+          src="/image/header-bg-low.jpg"
+          alt="bg"
+        />
         </HomeStyle>
     );
 }

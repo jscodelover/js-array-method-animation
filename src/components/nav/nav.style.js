@@ -23,6 +23,25 @@ const NavStyle = style.nav`
                 margin-left: 15px;
                 margin-right: 15px;
             }
+            .theme-btn{
+                padding: 3px 5px;
+                border-radius: 50%;
+                cursor: pointer;
+                margin-left: 23px;
+                svg{
+                    width: 15px;
+                    height: 15px;
+                }
+                &-white{
+                    background-color: #fff;
+                }
+                &-black{
+                    background-color: #000;
+                    svg{
+                        fill: #fff;
+                    }
+                }
+            }
         }
     }
     .menu-btn{
@@ -34,9 +53,6 @@ const NavStyle = style.nav`
         img{
             width: inherit;
             height: inherit;
-        }
-        &:focus{
-            outline: none;
         }
     }
 `;

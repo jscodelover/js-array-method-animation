@@ -16,16 +16,13 @@ const ButtonStyle = style.div`
         cursor: pointer;
         letter-spacing: 0.03em;
         font-family: "Nunito Sans", sans-serif;
-        &:focus{
-            outline: none;
-            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 1px, ${
-							theme.colors.black1
-						} 2px 2px 4px 0px;
-        }
         &:hover{
             box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 1px, ${
 							theme.colors.black1
 						} 2px 2px 4px 0px;
+        }
+        &:active{
+            box-shadow: rgba(0,0,0,0) 0px 0px 0px 1px, rgba(0, 0, 0, 0.58) 2px 2px 2px 0px;
         }
     }
     .btn-a{

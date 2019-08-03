@@ -39,6 +39,10 @@ const GlobalStyle = createGlobalStyle`
             monospace;
     }
 
+    button:focus{
+        outline: none;
+    }
+
     /* react-select */
 
     .customSelect {

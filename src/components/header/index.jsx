@@ -29,7 +29,7 @@ function Header(){
                 }
             })
             .delay(0.5);    
-    })
+    },[])
     return (
         <HeaderStyle>
             <div className="heading" style={styleHeading}>

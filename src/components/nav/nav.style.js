@@ -1,5 +1,21 @@
 import style from 'styled-components';
-import theme from '../../style/theme';
+import theme from 'styled-theming';
+import defaultTheme from '../../style/themes';
+
+const bgColor = theme('mode', {
+	light: '#fff',
+	dark: '#000'
+});
+
+const svgFill = theme('mode', {
+	light: '#000',
+	dark: '#fff'
+});
+
+// const bgColorBackdrop = theme('mode', {
+// 	light: 'rgba(0,0,0,0.8)',
+// 	dark: 'rgba(255,255,255,0.8)'
+// });
 
 const NavStyle = style.nav`
     position: fixed;
@@ -16,7 +32,7 @@ const NavStyle = style.nav`
         align-items: baseline;    
         justify-content: flex-end;
         li{
-            color: ${theme.colors.white};
+            color: ${defaultTheme.colors.white};
             font-weight: 600;
             cursor: pointer;
             &:nth-child(2){
@@ -28,18 +44,11 @@ const NavStyle = style.nav`
                 border-radius: 50%;
                 cursor: pointer;
                 margin-left: 23px;
+                background-color: ${bgColor};
                 svg{
                     width: 15px;
                     height: 15px;
-                }
-                &-white{
-                    background-color: #fff;
-                }
-                &-black{
-                    background-color: #000;
-                    svg{
-                        fill: #fff;
-                    }
+                    fill: ${svgFill};
                 }
             }
         }

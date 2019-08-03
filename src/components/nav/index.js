@@ -34,11 +34,11 @@ function Nav() {
 		}
 	}
 	const options = [
-		{ value: 'filter', label: 'Filter' },
-		{ value: 'map', label: 'Map' },
-		{ value: 'reduce', label: 'Reduce' },
-		{ value: 'find', label: 'Find' },
-		{ value: 'findIndex', label: 'Find Index' }
+		{ value: 'filter', label: 'Filter Method' },
+		{ value: 'map', label: 'Map Method' },
+		{ value: 'reduce', label: 'Reduce Method' },
+		{ value: 'find', label: 'Find Method' },
+		{ value: 'findIndex', label: 'Find-Index Method' }
 	];
 	const navItems = (
 		<ul>
@@ -46,6 +46,8 @@ function Nav() {
 			<li>
 				<Select
 					classNamePrefix='customSelect'
+					isSearchable={false}
+					isClearable={false}
 					value={arrayMethod}
 					onChange={data => {
 						handleChange(data);

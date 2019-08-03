@@ -2,15 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from './style/global.style';
-import theme from './style/theme';
+import defaultTheme from './style/themes';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const app = (
-	<ThemeProvider theme={theme}>
+	<ThemeProvider theme={defaultTheme}>
 		<BrowserRouter>
-			<GlobalStyle />
 			<App />
 		</BrowserRouter>
 	</ThemeProvider>

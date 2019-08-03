@@ -1,5 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
+import theme from 'styled-theming';
+import degaultTheme from './themes';
+
+const fontColor = theme('mode', {
+	light: degaultTheme.colors.black2,
+	dark: degaultTheme.colors.white
+});
+
+const bgColor = theme('mode', {
+	light: degaultTheme.colors.white,
+	dark: degaultTheme.colors.black2
+});
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -25,7 +36,8 @@ const GlobalStyle = createGlobalStyle`
         font-variant: none;
         font-size: 14px;
         line-height: 1.4;
-        background: ${theme.colors.white};
+        background-color: ${bgColor};
+        color: ${fontColor};
         text-size-adjust: auto;
         -ms-overflow-style: none;
         overflow: -moz-scrollbars-none;
@@ -63,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
             margin-top: 1px !important;
             width: 150px !important;
             background-color: transparent !important;
-            color: ${theme.colors.white};
+            color: ${degaultTheme.colors.white};
             box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;
         }
         &__option {
@@ -73,18 +85,18 @@ const GlobalStyle = createGlobalStyle`
             }
             &--is-selected {
                 background-image: linear-gradient(to right, #defb7d, ${
-									theme.colors.secondaryColor
-								}, ${theme.colors.ternaryColor});
+									degaultTheme.colors.secondaryColor
+								}, ${degaultTheme.colors.ternaryColor});
             }
         }
         &__indicator {
             svg {
-                color: ${theme.colors.white};
+                color: ${degaultTheme.colors.white};
             }
         }
         &__single-value,
         &__placeholder {
-            color: ${theme.colors.white} !important;
+            color: ${degaultTheme.colors.white} !important;
             font-weight: 600;
         }
     }

@@ -1,5 +1,5 @@
 import style from 'styled-components';
-import theme from '../../style/theme';
+import defaultTheme from '../../style/themes';
 
 const HeaderStyle = style.div`
     height: 80vh;
@@ -27,9 +27,11 @@ const HeaderStyle = style.div`
         &__text{    
             position: relative;  
             background-image: linear-gradient(to right, ${
-							theme.colors.primaryColor
-						}, ${theme.colors.secondaryColor}, ${theme.colors.ternaryColor});
-            text-shadow: 6px 2px 0px ${theme.colors.white};
+							defaultTheme.colors.primaryColor
+						}, ${defaultTheme.colors.secondaryColor}, ${
+	defaultTheme.colors.ternaryColor
+});
+            text-shadow: 6px 2px 0px ${defaultTheme.colors.white};
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
@@ -46,7 +48,7 @@ const HeaderStyle = style.div`
             }
         }
         @media(max-width: 628px){
-            font-size: 
+            font-size: 70px;
         }
     }
 `;

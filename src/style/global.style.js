@@ -94,9 +94,10 @@ const GlobalStyle = createGlobalStyle`
                 background-color: #0606064a !important;
             }
             &--is-selected {
-                background-image: linear-gradient(to right, #defb7d, ${
+                /* background-image: linear-gradient(to right, #defb7d, ${
 									degaultTheme.colors.secondaryColor
-								}, ${degaultTheme.colors.ternaryColor});
+								}, ${degaultTheme.colors.ternaryColor}); */
+                                background-image: linear-gradient(to right,#c7ffdd,#fbd988);
             }
         }
         &__indicator {

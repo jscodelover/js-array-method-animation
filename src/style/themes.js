@@ -1,12 +1,14 @@
 const colors = {
 	black1: 'rgba(0,0,0,0.8)',
-	black2: '#100e17',
+	black2: '#201f27',
 	black: '#000000',
 	white: 'rgb(255,255,255)',
 	lightgrey: '#f5f5f5',
 	grey: '#9e9e9e',
-	primaryColor: '#f85314',
-	secondaryColor: '#97ba62',
+	// primaryColor: '#f85314',
+	primaryColor: '#c7ffdd',
+	// secondaryColor: '#97ba62',
+	secondaryColor: '#fbd988',
 	ternaryColor: '#0b7e91',
 	textColorDark: '#261c18'
 };

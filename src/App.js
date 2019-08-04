@@ -10,7 +10,7 @@ const Home = lazy(() => import('./container/Home'));
 
 function App() {
 	return (
-		<ThemeProvider theme={{ mode: 'light' }}>
+		<ThemeProvider theme={{ mode: 'dark' }}>
 			<>
 				<GlobalStyle />
 				<Suspense fallback={<Loader />}>

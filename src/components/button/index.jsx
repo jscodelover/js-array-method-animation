@@ -9,7 +9,6 @@ function Button(props){
             case 'a': return <a href={refLink}className="btn btn-a">{children}</a>
             default: return <button type="button" className="btn ">{children}</button>
         }
-    
     }
     return (
         <ButtonStyle>

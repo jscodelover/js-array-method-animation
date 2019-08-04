@@ -23,7 +23,7 @@ function Nav(props) {
 			window.pageYOffset > 20
 		) {
 			TweenLite.to(navRef.current, 1, {
-				backgroundImage: 'url("/image/header-bg.jpg") ',
+				backgroundImage: 'linear-gradient(to right, #94999c, #2c3e50)',
 				ease: Power3.easeOut
 			});
 		} else {

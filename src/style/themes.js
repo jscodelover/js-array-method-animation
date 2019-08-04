@@ -10,7 +10,8 @@ const colors = {
 	// secondaryColor: '#97ba62',
 	secondaryColor: '#fbd988',
 	ternaryColor: '#0b7e91',
-	textColorDark: '#261c18'
+	textColorDark: '#261c18',
+	btnTextColor: 'rgb(52, 70, 51)'
 };
 
 export default {

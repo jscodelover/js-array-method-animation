@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
         &__menu {
             margin-top: 1px !important;
             width: 150px !important;
-            background-color: transparent !important;
+            background-image: linear-gradient(to right, #94999c, #2c3e50) !important;
             color: ${degaultTheme.colors.white};
             box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;
         }
@@ -94,10 +94,7 @@ const GlobalStyle = createGlobalStyle`
                 background-color: #0606064a !important;
             }
             &--is-selected {
-                /* background-image: linear-gradient(to right, #defb7d, ${
-									degaultTheme.colors.secondaryColor
-								}, ${degaultTheme.colors.ternaryColor}); */
-                                background-image: linear-gradient(to right,#c7ffdd,#fbd988);
+                background-image: linear-gradient(to right, #dcddde, #6d7986);
             }
         }
         &__indicator {

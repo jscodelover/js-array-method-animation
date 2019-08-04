@@ -24,7 +24,7 @@ function Header(){
                 bottom: '0', y: 0,
                 onComplete: () => {
                     handleStyle({
-                        boxShadow: '0 0 0 1px hsla(0, 0%, 0%, 0), 0px -1px 20px 7px hsl(0, 0%, 0%)',
+                        boxShadow: 'rgba(0, 0, 0, 0) 0px 0px 0px 1px, rgb(0, 0, 0) 0px -1px 20px 0px',
                         padding: '10px',
                         borderRadius: '17px'
                     })
@@ -35,7 +35,8 @@ function Header(){
     
     return (
         <HeaderStyle>
-            <ProgressiveImage className="image-header" alt="bg-image" src="/image/header-bg.jpg" overlaySrc="/image/header-bg-low.jpg" />
+            <div className="image-overlay"></div>
+            <ProgressiveImage className="image-header" alt="bg-image" src="/image/header-bg.jpeg" overlaySrc="/image/header-bg-low.jpg" />
             <div className="heading" style={styleHeading}>
                 <span className="heading__text heading__text--1"  ref={headerRef1}>Animate</span>  
                 <span className="heading__text heading__text--2"  ref={headerRef2}>Array</span>

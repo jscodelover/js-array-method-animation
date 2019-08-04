@@ -5,6 +5,14 @@ const HeaderStyle = style.div`
     height: 80vh;
     position: relative;
     clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
+    .image-overlay{
+        position: fixed;
+        height: 80vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(45deg, #27262659, #211c1c42);
+    }
     .image-header{
         width: 100%;
         height: 100%;
@@ -16,7 +24,7 @@ const HeaderStyle = style.div`
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 80px;
-        font-family: "Raleway";
+        font-family: "Merriweather";
         font-weight: 800;
         letter-spacing: 0.05em;
         line-height: 1.1em;
@@ -25,15 +33,9 @@ const HeaderStyle = style.div`
         justify-content: center;
         align-items: center;
         &__text{    
-            position: relative;  
-            background-image: linear-gradient(to right, ${
-							defaultTheme.colors.primaryColor
-						}, ${defaultTheme.colors.secondaryColor}, ${
-	defaultTheme.colors.ternaryColor
-});
-            text-shadow: 6px 2px 0px ${defaultTheme.colors.white};
-            -webkit-background-clip: text;
-            color: transparent;
+            position: relative;
+            text-shadow: 6px 2px 0px rgb(35, 34, 34);
+            color: ${defaultTheme.colors.white};
             display: inline-block;
             text-align: center;
             &--1{

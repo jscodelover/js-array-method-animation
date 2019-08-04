@@ -3,7 +3,7 @@ import Select, { components } from 'react-select';
 import { TweenLite, Power3 } from 'gsap';
 import { NavStyle, SideBar } from './nav.style';
 
-function Nav() {
+function Nav(props) {
 	const [arrayMethod, handleChange] = useState(null);
 	const [screenWidth, handleResize] = useState(window.innerWidth);
 	const [showMenu, handleMenu] = useState(false);
@@ -61,7 +61,7 @@ function Nav() {
 			</li>
 			<li>About Me</li>
 			<li>
-				<button className='theme-btn'>
+				<button className='theme-btn' onClick={props.handleMode}>
 					<svg
 						height='448pt'
 						viewBox='-12 0 448 448.04455'

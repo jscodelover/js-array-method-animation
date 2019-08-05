@@ -1,6 +1,7 @@
 import React from 'react';
 import { HomeStyle } from './home.style';
 import Button from '../../components/button';
+import CodePanel from '../../components/codepanel';
 
 function Home(){
     const svg = (
@@ -22,6 +23,7 @@ function Home(){
                     {svg}
                 </div>
             </div>
+            <CodePanel />
        </HomeStyle>
     );
 }

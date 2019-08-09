@@ -65,6 +65,10 @@ const GlobalStyle = createGlobalStyle`
         z-index: 9;
     }
 
+    .app-container{
+        margin: 70px 10%;
+    }
+
     /* react-select */
 
     .customSelect {

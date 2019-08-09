@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './style/global.style';
 import Loader from './components/loader';
+import SubHeader from './components/subHeader';
 import { saveState, loadState } from './utils/common';
 
 const Header = lazy(() => import('./components/header'));
@@ -30,9 +31,12 @@ function App() {
 				<Suspense fallback={<Loader />}>
 					<Nav handleMode={handleModeChange} />
 					<Header />
-					<Switch>
-						<Route path='/' render={() => <Home />} />
-					</Switch>
+					<div className='app-container'>
+						<SubHeader />
+						<Switch>
+							<Route path='/' component={Home} />
+						</Switch>
+					</div>
 				</Suspense>
 			</>
 		</ThemeProvider>

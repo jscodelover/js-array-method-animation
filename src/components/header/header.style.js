@@ -2,12 +2,12 @@ import style from 'styled-components';
 import defaultTheme from '../../style/themes';
 
 const HeaderStyle = style.div`
-    height: 80vh;
+    height: 90vh;
     position: relative;
     clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
     .image-overlay{
         position: fixed;
-        height: 80vh;
+        height: 90vh;
         top: 0;
         left: 0;
         right: 0;

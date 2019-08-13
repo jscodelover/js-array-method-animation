@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import { TweenLite, Power3 } from 'gsap';
+import useToggle from '../../hooks/useToggle';
 import { NavStyle, SideBar } from './nav.style';
 
 function Nav(props) {
 	const [arrayMethod, handleChange] = useState(null);
 	const [screenWidth, handleResize] = useState(window.innerWidth);
-	const [showMenu, handleMenu] = useState(false);
+	const [showMenu, handleMenu] = useToggle();
 	const navRef = useRef(null);
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);

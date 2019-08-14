@@ -66,7 +66,23 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .app-container{
-        margin: 70px 10%;
+        margin: 70px 17%;
+        @media (max-width: 628px){
+            margin: 70px 10%;
+        }
+    }
+
+    .linkRouter{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    h1{
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-decoration-line: underline;
+        text-align: center;
+        margin-bottom: 50px;
     }
 
     /* react-select */

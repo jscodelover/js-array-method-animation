@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import Select, { components } from 'react-select';
 import { TweenLite, Power3 } from 'gsap';
 import useToggle from '../../hooks/useToggle';
@@ -9,6 +10,29 @@ function Nav(props) {
 	const [screenWidth, handleResize] = useState(window.innerWidth);
 	const [showMenu, handleMenu] = useToggle();
 	const navRef = useRef(null);
+	const options = [
+		{ value: 'filter', label: 'Filter Method' },
+		{
+			value: 'map',
+			label: (
+				<Link to='/map' className='linkRouter'>
+					Map Method
+				</Link>
+			)
+		},
+		{ value: 'reduce', label: 'Reduce Method' },
+		{ value: 'find', label: 'Find Method' },
+		{ value: 'findIndex', label: 'Find-Index Method' }
+	];
+
+	useEffect(() => {
+		const {
+			location: { pathname }
+		} = props;
+		const arMethod = options.find(method => pathname.includes(method.value));
+		handleChange(arMethod);
+	}, [props]);
+
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener('resize', handleScroll);
@@ -16,7 +40,7 @@ function Nav(props) {
 			window.removeEventListener('scroll', handleScroll);
 			window.addEventListener('resize', handleScroll);
 		};
-	});
+	}, []);
 	function handleScroll() {
 		handleResize(window.innerWidth);
 		if (
@@ -34,13 +58,6 @@ function Nav(props) {
 			});
 		}
 	}
-	const options = [
-		{ value: 'filter', label: 'Filter Method' },
-		{ value: 'map', label: 'Map Method' },
-		{ value: 'reduce', label: 'Reduce Method' },
-		{ value: 'find', label: 'Find Method' },
-		{ value: 'findIndex', label: 'Find-Index Method' }
-	];
 	const navItems = (
 		<ul>
 			<li>Home</li>
@@ -93,4 +110,4 @@ function Nav(props) {
 	);
 }
 
-export default Nav;
+export default withRouter(Nav);

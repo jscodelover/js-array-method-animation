@@ -9,8 +9,9 @@ import { saveState, loadState } from './utils/common';
 const Header = lazy(() => import('./components/header'));
 const Nav = lazy(() => import('./components/nav'));
 const Home = lazy(() => import('./container/Home'));
+const MapMethod = lazy(() => import('./container/Map'));
 
-function App() {
+function App(props) {
 	const [theme, handleMode] = useState(
 		loadState('mode') !== undefined ? loadState('mode') : true
 	);
@@ -34,7 +35,8 @@ function App() {
 					<div className='app-container'>
 						<SubHeader />
 						<Switch>
-							<Route path='/' component={Home} />
+							<Route exact path='/' component={Home} />
+							<Route path='/map' component={MapMethod} />
 						</Switch>
 					</div>
 				</Suspense>

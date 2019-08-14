@@ -26,12 +26,32 @@ const CodePanelStyle = style.div`
     border-radius: 10px;
     box-shadow: 2px 2px 13px 1px ${borderShadow};
     font-family: 'Fira Code', monospace;
-    & > div{
-        line-height: 22px;
+    .wrapper{
+        overflow-y: scroll;
+        & > div{
+            line-height: 22px;
+            &:not(:first-of-type):not(:last-of-type){
+                margin: 15px 0px;
+            }
+            &:nth-child(2), &:nth-child(3){
+                & > p:not(:last-of-type):not(:first-of-type){
+                    margin-left: 35px;
+                }
+            }
+            & > p:not(:last-of-type):not(:first-of-type){
+                margin-left: 25px;
+            }
+            @media (max-width: 628px){
+                letter-spacing: -0.4px;
+            }
+        }
+        .or{
+            margin: 10px 0px;
+        }
     }
     @media (max-width: 628px){
         padding: 10px;
-        margin: 10px 30px;
+        margin: 10px 0px;
     }
 `;
 

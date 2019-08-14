@@ -1,140 +1,162 @@
 export const arrayMethod = {
 	find: {
-		data: `const nameList = ['Jaclyn', 'Magaly', 'Merle', 'Remona', 'Anabel', 'Jscodelover', 'Evangelina', 'Romelia', 'Trudi', 'Rosy'];`,
-		function: ` const getName = nameList.find(function(name){
-                        return name === 'Jscodelover';
-                    });`,
-		alternative_function: `const getName = nameList.find(name => name === 'Jscodelover');`,
+		data: `<p>const nameList = [</p>
+                <p>'Jaclyn',</p> 
+                <p>'Magaly',</p> 
+                <p>'Merle',</p> 
+                <p>'Remona',</p> 
+                <p>'Anabel',</p> 
+                <p>'Jscodelover',</p> 
+                <p>'Evangelina',</p> 
+                <p>'Romelia',</p> 
+                <p>'Trudi', 
+                <p>'Rosy'</p>
+            <p>];</p>`,
+		function: ` <p>const getName = nameList.find(function(name){</p>
+                        <p>return name === 'Jscodelover';</p>
+                    <p>});</p>`,
+		alternative_function: `<p>const getName = nameList.find(name => name === 'Jscodelover');</p>`,
 		result: `console.log(getname);`
 	},
 	findIndex: {
-		data: `const floorOwners = ['Jaclyn', 'Magaly', 'Merle', 'Remona', 'Anabel', 'Jscodelover', 'Evangelina', 'Romelia', 'Trudi', 'Rosy'];`,
-		function: ` const floorNo = floorOwners.findIndex(function(owner){
-                        return owner === 'Jscodelover';
-                    });`,
-		alternative_function: `const floorNo = floorOwners.findIndex(owner => owner === 'Jscodelover');`,
+		data: `<p>const floorOwners = [</p>
+                <p>'Jaclyn',</p> 
+                <p>'Magaly',</p> 
+                <p>'Merle',</p> 
+                <p>'Remona',</p> 
+                <p>'Anabel',</p> 
+                <p>'Jscodelover',</p> 
+                <p>'Evangelina',</p> 
+                <p>'Romelia',</p> 
+                <p>'Trudi',</p> 
+                <p>'Rosy'</p>
+            <p>];</p>`,
+		function: ` <p>const floorNo = floorOwners.findIndex(function(owner){</p>
+                        <p>return owner === 'Jscodelover';</p>
+                    <p>});</p>`,
+		alternative_function: `<p>const floorNo = floorOwners.findIndex(owner => owner === 'Jscodelover');</p>`,
 		result: `console.log(floorNo);`
 	},
 	reduce: {
-		data: `let peopleData = [
-                {
+		data: `<p>let peopleData = [</p>
+                <p>{
                     country: 'China',
                     name: 'Hai Rong',
-                },
-                {
+                },</p>
+                <p>{
                     country: 'India',
                     name: 'Rohan',
-                },
-                {
+                },</p>
+                <p>{
                     country: 'USA',
                     name: 'Jack',
-                },
-                {
+                },</p>
+                <p>{
                     country: 'India',
                     name: 'Niti',
-                },
-                {
+                },</p>
+                <p>{
                     country: 'China',
                     name: 'Huang',
-                },
-                {
+                },</p>
+                <p>{
                     country: 'USA',
                     pop: 'Harry',
-                },
-            ];`,
-		function: ` const indianCitizen = peopleData.reduce(function(acc, info){
-                        if(info.country === 'India')
-                            return acc.concat(info.name);
-                        return acc;    
-                    }, []);`,
+                },</p>
+            <p>];</p>`,
+		function: ` <p>const indianCitizen = peopleData.reduce(function(acc, info){</p>
+                        <p>if(info.country === 'India')</p>
+                            <p>return acc.concat(info.name);</p>
+                        <p>return acc;</p>    
+                    <p>}, []);</p>`,
 		result: `console.log(indianCitizen);`
 	},
 	map: {
-		data: `const personWithLikes = [
-                { name: 'Jonathan', likes: 'Grilled Chicken' },
-                { name: 'Janes', likes: 'Cold Beer' },
-                { name: 'Camilla', likes: 'Fish' }
-            ];`,
-		function: ` const personByFood = personWithLikes.map(item => {
-                        const container = {};
-                        container[item.name] = item.likes;
-                        return container;
-                    });
+		data: `<p>const personWithLikes = [ </p> 
+                <p>{ name: 'Jonathan', likes: 'Grilled Chicken' },</p>
+                <p>{ name: 'Janes', likes: 'Cold Beer' },</p>
+                <p>{ name: 'Camilla', likes: 'Fish' }</p>
+            <p>];</p>`,
+		function: ` <p>const personByFood = personWithLikes.map(item => {</p>
+                        <p>const container = {};</p>
+                        <p>container[item.name] = item.likes;</p>
+                        <p>return container;</p>
+                    <p>});</p>
                 `,
 		result: `console.log(personByFood);`
 	},
 	filter: {
-		data: `const heroes = [
-                {name: 'Batman', franchise: 'DC'},
-                {name: 'Ironman', franchise: 'Marvel'},
-                {name: 'Thor', franchise: 'Marvel'},
-                {name: 'Superman', franchise: 'DC'}
-            ];`,
-		function: ` const marvelHeroes =  heroes.filter(function(hero) {
-                        return hero.franchise == 'Marvel';
-                    }); `,
-		alternative_function: `const marvelHeroes = heroes.filter(hero => hero.franchise === 'Marvel');`,
+		data: `<p>const heroes = [</p>
+                <p>{name: 'Batman', franchise: 'DC'},</p>
+                <p>{name: 'Ironman', franchise: 'Marvel'},</p>
+                <p>{name: 'Thor', franchise: 'Marvel'},</p>
+                <p>{name: 'Superman', franchise: 'DC'}</p>
+            <p>];</p>`,
+		function: ` <p>const marvelHeroes =  heroes.filter(function(hero) {</p>
+                        <p>return hero.franchise == 'Marvel';</p>
+                    <p>}); </p>`,
+		alternative_function: `<p>const marvelHeroes = heroes.filter(hero => hero.franchise === 'Marvel');</p>`,
 		result: `console.log(marvelHeroes);`
 	},
 	some: {
-		data: `const employes = [
-                {name: 'Sam', language: 'java'},
-                {name: 'Simaran', language: 'php'},
-                {name: 'Happy', language: 'reactjs'},
-                {name: 'Sunny', language: 'vuejs'}
-            ];`,
-		function: ` const haveReactEmployee =  employes.some(function(employee) {
-                        return employee.language == 'reactjs';
-                    }); `,
-		alternative_function: `const haveReactEmployee = heroes.some(employee => employee.language === 'reactjs');`,
+		data: `<p>const employes = [</p>
+                <p>{name: 'Sam', language: 'java'},</p>
+                <p>{name: 'Simaran', language: 'php'},</p>
+                <p>{name: 'Happy', language: 'reactjs'},</p>
+                <p>{name: 'Sunny', language: 'vuejs'}<p>
+            <p>];</p>`,
+		function: ` <p>const haveReactEmployee =  employes.some(function(employee) {</p>
+                        <p>return employee.language == 'reactjs';</p>
+                    <p>}); </p>`,
+		alternative_function: `<p>const haveReactEmployee = heroes.some(employee =></p> <p>employee.language === 'reactjs');</p>`,
 		result: `console.log(haveReactEmployee);`
 	},
 	every: {
-		data: `const employes = [
-                {name: 'Sam', language: 'java'},
-                {name: 'Simaran', language: 'php'},
-                {name: 'Happy', language: 'reactjs'},
-                {name: 'Sunny', language: 'vuejs'}
-            ];`,
-		function: ` const haveReactEmployee =  employes.every(function(employee) {
-                        return employee.language == 'reactjs';
-                    }); `,
-		alternative_function: `const haveReactEmployee = heroes.every(employee => employee.language === 'reactjs');`,
+		data: `<p>const employes = [</p>
+                <p>{name: 'Sam', language: 'java'},</p>
+                <p>{name: 'Simaran', language: 'php'},</p>
+                <p>{name: 'Happy', language: 'reactjs'},</p>
+                <p>{name: 'Sunny', language: 'vuejs'}</p>
+            <p>];</p>`,
+		function: ` <p>const haveReactEmployee =  employes.every(function(employee) {</p>
+                        <p>return employee.language == 'reactjs';</p>
+                    <p>}); </p>`,
+		alternative_function: `<p>const haveReactEmployee = heroes.every(employee =></p> <p>employee.language === 'reactjs');</p>`,
 		result: `console.log(haveReactEmployee);`
 	},
 	sortA: {
-		data: `const students = [
-                'Hai Rong',
-                'Rohan',
-                'Vicky',
-                'Niti',
-                'Jack',
-                'Huang'
-            ];`,
-		function: ` const studentAsc =  students.sort(function(student1, student2) {
-                        return student1 > syudent2? -1 : 1;
-                    }); `,
-		alternative_function: `const studentAsc = students.sort((student1, student2) => student1 > syudent2? -1 : 1);`,
+		data: `<p>const students = [</p>
+                <p>'Hai Rong',</p>
+                <p>'Rohan',</p>
+                <p>'Vicky',</p>
+                <p>'Niti',</p>
+                <p>'Jack',</p>
+                <p>'Huang'</p>
+            <p>];</p>`,
+		function: ` <p>const studentAsc =  students.sort(function(student1, student2) {</p>
+                        <p>return student1 > syudent2? -1 : 1;</p>
+                    <p>}); </p>`,
+		alternative_function: `<p>const studentAsc = students.sort((student1, student2) =></p> <p>student1 > syudent2? -1 : 1);</p>`,
 		result: `console.log(studentAsc);`
 	},
 	sortD: {
-		data: `const students = [
-                'Hai Rong',
-                'Rohan',
-                'Vicky',
-                'Niti',
-                'Jack',
-                'Huang'
-            ];`,
-		function: ` const studentDesc =  students.sort(function(student1, student2) {
-                        return student1 < syudent2? -1 : 1;
-                    }); `,
-		alternative_function: `const studentDesc = students.sort((student1, student2) => student1 > syudent2? -1 : 1);`,
+		data: `<p>const students = [</p>
+                <p>'Hai Rong',</p>
+                <p>'Rohan',</p>
+                <p>'Vicky',</p>
+                <p>'Niti',</p>
+                <p>'Jack',</p>
+                <p>'Huang'</p>
+            <p>];</p>`,
+		function: ` <p>const studentDesc =  students.sort(function(student1, student2) {</p>
+                        <p>return student1 < syudent2? -1 : 1;</p>
+                    <p>}); </p>`,
+		alternative_function: `<p>const studentDesc = students.sort((student1, student2) => </p><p>student1 > syudent2? -1 : 1);</p>`,
 		result: `console.log(studentDesc);`
 	},
 	from: {
-		data: `const handler = '@jscodelover';`,
-		function: `const handlerArray = Array.from(handler);`,
-		result: `console.log(handlerArray);`
+		data: `<p>const handler = '@jscodelover';</p>`,
+		function: `<p>const handlerArray = Array.from(handler);</p>`,
+		result: `<p>console.log(handlerArray);</p>`
 	}
 };

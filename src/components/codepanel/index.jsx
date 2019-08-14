@@ -5,7 +5,9 @@ function CodePanel(props){
     const { children } = props;
     return (
         <CodePanelStyle>
-            { children }
+            <div className="wrapper">
+                { children }
+            </div>    
         </CodePanelStyle>
     )
 }

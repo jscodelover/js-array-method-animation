@@ -108,7 +108,7 @@ export const arrayMethod = {
 		function: ` <p>const haveReactEmployee =  employes.some(function(employee) {</p>
                         <p>return employee.language == 'reactjs';</p>
                     <p>}); </p>`,
-		alternative_function: `<p>const haveReactEmployee = heroes.some(employee =></p> <p>employee.language === 'reactjs');</p>`,
+		alternative_function: `<p>const haveReactEmployee = heroes.some(employee => employee.language === 'reactjs');</p>`,
 		result: `console.log(haveReactEmployee);`
 	},
 	every: {
@@ -121,7 +121,7 @@ export const arrayMethod = {
 		function: ` <p>const haveReactEmployee =  employes.every(function(employee) {</p>
                         <p>return employee.language == 'reactjs';</p>
                     <p>}); </p>`,
-		alternative_function: `<p>const haveReactEmployee = heroes.every(employee =></p> <p>employee.language === 'reactjs');</p>`,
+		alternative_function: `<employee.language>const haveReactEmployee = heroes.every(employee => employee.language === 'reactjs');</p>`,
 		result: `console.log(haveReactEmployee);`
 	},
 	sortA: {
@@ -136,7 +136,7 @@ export const arrayMethod = {
 		function: ` <p>const studentAsc =  students.sort(function(student1, student2) {</p>
                         <p>return student1 > syudent2? -1 : 1;</p>
                     <p>}); </p>`,
-		alternative_function: `<p>const studentAsc = students.sort((student1, student2) =></p> <p>student1 > syudent2? -1 : 1);</p>`,
+		alternative_function: `<p>const studentAsc = students.sort((student1, student2) => student1 > student2 ? -1 : 1);</p>`,
 		result: `console.log(studentAsc);`
 	},
 	sortD: {
@@ -151,7 +151,7 @@ export const arrayMethod = {
 		function: ` <p>const studentDesc =  students.sort(function(student1, student2) {</p>
                         <p>return student1 < syudent2? -1 : 1;</p>
                     <p>}); </p>`,
-		alternative_function: `<p>const studentDesc = students.sort((student1, student2) => </p><p>student1 > syudent2? -1 : 1);</p>`,
+		alternative_function: `<p>const studentDesc = students.sort((student1, student2) => student1 > student2 ? -1 : 1);</p>`,
 		result: `console.log(studentDesc);`
 	},
 	from: {

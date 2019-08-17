@@ -21,13 +21,18 @@ const borderShadow = theme('mode', {
 const CodePanelStyle = style.div`
     background-image: ${bgColor};
     color: ${textColor};
-    margin: 10px 50px;
-    padding: 20px;
+    margin: 10px auto;
+    padding: 30px;
+    width: calc(100% - 100px);
     border-radius: 10px;
     box-shadow: 2px 2px 13px 1px ${borderShadow};
     font-family: 'Fira Code', monospace;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
     .wrapper{
-        overflow-y: scroll;
+        width: 100vw;
+        vertical-align: middle;
         & > div{
             line-height: 22px;
             &:not(:first-of-type):not(:last-of-type){
@@ -50,8 +55,9 @@ const CodePanelStyle = style.div`
         }
     }
     @media (max-width: 628px){
-        padding: 10px;
+        padding: 20px;
         margin: 10px 0px;
+        width: 100%;
     }
 `;
 

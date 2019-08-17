@@ -67,8 +67,9 @@ const GlobalStyle = createGlobalStyle`
 
     .app-container{
         margin: 70px 17%;
-        @media (max-width: 628px){
-            margin: 70px 10%;
+        @media (max-width: 1200px){
+            margin-left: 10%;
+            margin-right: 10%;
         }
     }
 

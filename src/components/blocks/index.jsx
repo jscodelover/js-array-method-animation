@@ -6,7 +6,7 @@ function Block(props){
     return(
         <BlockStyle fontSize={fontSize}>
             {
-                Array(items).fill(0).map(item => <div className="box">{children}</div>)
+                Array(items).fill(1).map((item, index) => <div key={item*index} className="box">{children}</div>)
             }
         </BlockStyle>
     );  

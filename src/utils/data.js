@@ -76,6 +76,8 @@ export const arrayMethod = {
                 <p>{ name: 'Jonathan', likes: 'Grilled Chicken' },</p>
                 <p>{ name: 'Janes', likes: 'Cold Beer' },</p>
                 <p>{ name: 'Camilla', likes: 'Fish' }</p>
+                <p>{ name: 'Kiaan', likes: 'Burger' }</p>
+                <p>{ name: 'Jaanvi', likes: 'Cake' }</p>
             <p>];</p>`,
 		function: ` <p>const personByFood = personWithLikes.map(item => {</p>
                         <p>const container = {};</p>

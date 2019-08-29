@@ -4,6 +4,7 @@ const BlockStyle = style.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: ${props => props.marginTop};
     .box{
         position: relative;
         display: flex;

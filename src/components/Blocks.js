@@ -5,6 +5,7 @@ const BlockStyle = style.div`
     flex-direction: row;
     justify-content: space-evenly;
     .box{
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -18,9 +18,10 @@ function Map() {
 	const block9 = useRef(null);
 	const block10 = useRef(null);
 	useEffect(() => {
-		TweenMax.to(mapFn.current, 4, {
+		TweenMax.to(mapFn.current, 2, {
 			rotation: 360,
-			ease: Power0.easeOut
+			ease: Power0.easeOut,
+			repeat: 1
 		}).delay(3.6);
 		TweenMax.fromTo(
 			block1.current,

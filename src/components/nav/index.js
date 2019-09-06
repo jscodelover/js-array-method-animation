@@ -11,7 +11,14 @@ function Nav(props) {
 	const [showMenu, handleMenu] = useToggle();
 	const navRef = useRef(null);
 	const options = [
-		{ value: 'filter', label: 'Filter Method' },
+		{
+			value: 'filter',
+			label: (
+				<Link to='/filter' className='linkRouter'>
+					Filter Method
+				</Link>
+			)
+		},
 		{
 			value: 'map',
 			label: (
@@ -20,9 +27,30 @@ function Nav(props) {
 				</Link>
 			)
 		},
-		{ value: 'reduce', label: 'Reduce Method' },
-		{ value: 'find', label: 'Find Method' },
-		{ value: 'findIndex', label: 'Find-Index Method' }
+		{
+			value: 'find',
+			label: (
+				<Link to='/find' className='linkRouter'>
+					Find Method
+				</Link>
+			)
+		},
+		{
+			value: 'findIndex',
+			label: (
+				<Link to='/findindex' className='linkRouter'>
+					Find-Index Method
+				</Link>
+			)
+		},
+		{
+			value: 'reduce',
+			label: (
+				<Link to='/reduce' className='linkRouter'>
+					Reduce Method
+				</Link>
+			)
+		}
 	];
 
 	useEffect(() => {

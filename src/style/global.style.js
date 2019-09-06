@@ -86,6 +86,10 @@ const GlobalStyle = createGlobalStyle`
         margin-bottom: 50px;
     }
 
+    .d-none{
+        display: none !important;
+    }
+
     /* react-select */
 
     .customSelect {

@@ -88,15 +88,9 @@ function Map() {
 		<MapStyle>
 			<h1>Map Array Method</h1>
 			<CodePanel>
-				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.data }} />
-				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.function }} />
-				<div className='or'>----OR----</div>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: arrayMethod.sortA.alternative_function
-					}}
-				/>
-				<div>{arrayMethod.sortA.result}</div>
+				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.data }} />
+				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.function }} />
+				<div>{arrayMethod.map.result}</div>
 			</CodePanel>
 			<div>
 				<Block fontSize={7}>

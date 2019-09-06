@@ -10,6 +10,10 @@ const Header = lazy(() => import('./components/header'));
 const Nav = lazy(() => import('./components/nav'));
 const Home = lazy(() => import('./container/Home'));
 const MapMethod = lazy(() => import('./container/Map'));
+const FindMethod = lazy(() => import('./container/Find'));
+const FindIndexMethod = lazy(() => import('./container/FindIndex'));
+const ReduceMethod = lazy(() => import('./container/Reduce'));
+const FilterMethod = lazy(() => import('./container/Filter'));
 
 function App(props) {
 	const [theme, handleMode] = useState(
@@ -37,6 +41,10 @@ function App(props) {
 						<Switch>
 							<Route exact path='/' component={Home} />
 							<Route path='/map' component={MapMethod} />
+							<Route path='/find' component={FindMethod} />
+							<Route path='/findindex' component={FindIndexMethod} />
+							<Route path='/reduce' component={ReduceMethod} />
+							<Route path='/filter' component={FilterMethod} />
 						</Switch>
 					</div>
 				</Suspense>

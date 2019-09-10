@@ -14,6 +14,7 @@ const FindMethod = lazy(() => import('./container/Find'));
 const FindIndexMethod = lazy(() => import('./container/FindIndex'));
 const ReduceMethod = lazy(() => import('./container/Reduce'));
 const FilterMethod = lazy(() => import('./container/Filter'));
+const SortMethod = lazy(() => import('./container/Sort'));
 
 function App(props) {
 	const [theme, handleMode] = useState(
@@ -45,6 +46,7 @@ function App(props) {
 							<Route path='/findindex' component={FindIndexMethod} />
 							<Route path='/reduce' component={ReduceMethod} />
 							<Route path='/filter' component={FilterMethod} />
+							<Route path='/sort' component={SortMethod} />
 						</Switch>
 					</div>
 				</Suspense>

@@ -40,12 +40,13 @@ function Find() {
 					scale: 1.5,
 					ease: Power0.easeOut,
 					onComplete: () => {
-						if (ref.current.innerHTML !== "'Jscodelover'") {
-							ref.current.innerHTML = 'X';
-							ref.current.className += ' wrong-block';
-						} else {
-							ref.current.className += ' right-block';
-						}
+						if (ref.current)
+							if (ref.current.innerHTML !== "'Jscodelover'") {
+								ref.current.innerHTML = 'X';
+								ref.current.className += ' wrong-block';
+							} else {
+								ref.current.className += ' right-block';
+							}
 					}
 				}
 			).delay(i++ * 0.8);

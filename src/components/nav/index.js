@@ -50,6 +50,14 @@ function Nav(props) {
 					Reduce Method
 				</Link>
 			)
+		},
+		{
+			value: 'sort',
+			label: (
+				<Link to='/sort' className='linkRouter'>
+					Sort Method
+				</Link>
+			)
 		}
 	];
 
@@ -88,7 +96,12 @@ function Nav(props) {
 	}
 	const navItems = (
 		<ul>
-			<li>Home</li>
+			<li onClick={() => handleChange(null)}>
+				<Link to='/' className='linkRouter'>
+					Home
+				</Link>
+			</li>
+
 			<li>
 				<Select
 					classNamePrefix='customSelect'

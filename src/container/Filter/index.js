@@ -30,7 +30,7 @@ function Filter() {
 				repeat: 10,
 				rotation: -20,
 				onComplete: () => {
-					filterFn.current.className += ' rotate-zero';
+					filterFn.current && (filterFn.current.className += ' rotate-zero');
 				}
 			}
 		).delay(4.2);

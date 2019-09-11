@@ -18,9 +18,10 @@ function Map() {
 	const block9 = useRef(null);
 	const block10 = useRef(null);
 	useEffect(() => {
-		TweenMax.to(mapFn.current, 4, {
+		TweenMax.to(mapFn.current, 2, {
 			rotation: 360,
-			ease: Power0.easeOut
+			ease: Power0.easeOut,
+			repeat: 1
 		}).delay(3.6);
 		TweenMax.fromTo(
 			block1.current,
@@ -87,15 +88,9 @@ function Map() {
 		<MapStyle>
 			<h1>Map Array Method</h1>
 			<CodePanel>
-				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.data }} />
-				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.function }} />
-				<div className='or'>----OR----</div>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: arrayMethod.sortA.alternative_function
-					}}
-				/>
-				<div>{arrayMethod.sortA.result}</div>
+				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.data }} />
+				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.function }} />
+				<div>{arrayMethod.map.result}</div>
 			</CodePanel>
 			<div>
 				<Block fontSize={7}>

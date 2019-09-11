@@ -5,6 +5,7 @@ const BlockStyle = style.div`
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: ${props => props.marginTop};
+    position: relative;
     .box{
         position: relative;
         display: flex;
@@ -21,6 +22,11 @@ const BlockStyle = style.div`
         }
         &:nth-child(3n){
             background-color: #989898;
+        }
+        & > span{
+            position: absolute;
+            bottom: 1px;
+            font-family: 'Roboto';
         }
     }
 `;

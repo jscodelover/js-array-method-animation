@@ -128,7 +128,7 @@ export const arrayMethod = {
 	},
 	sortA: {
 		data: `<p>const students = [</p>
-                <p>'Hai Rong',</p>
+                <p>'Akhil',</p>
                 <p>'Rohan',</p>
                 <p>'Vicky',</p>
                 <p>'Niti',</p>
@@ -136,14 +136,14 @@ export const arrayMethod = {
                 <p>'Huang'</p>
             <p>];</p>`,
 		function: ` <p>const studentAsc =  students.sort(function(student1, student2) {</p>
-                        <p>return student1 > syudent2? -1 : 1;</p>
+                        <p>return student1 < student2? -1 : 1;</p>
                     <p>}); </p>`,
-		alternative_function: `<p>const studentAsc = students.sort((student1, student2) => student1 > student2 ? -1 : 1);</p>`,
+		alternative_function: `<p>const studentAsc = students.sort((student1, student2) => student1 < student2 ? -1 : 1);</p>`,
 		result: `console.log(studentAsc);`
 	},
 	sortD: {
 		data: `<p>const students = [</p>
-                <p>'Hai Rong',</p>
+                <p>'Akhil',</p>
                 <p>'Rohan',</p>
                 <p>'Vicky',</p>
                 <p>'Niti',</p>
@@ -151,7 +151,7 @@ export const arrayMethod = {
                 <p>'Huang'</p>
             <p>];</p>`,
 		function: ` <p>const studentDesc =  students.sort(function(student1, student2) {</p>
-                        <p>return student1 < syudent2? -1 : 1;</p>
+                        <p>return student1 > student2? -1 : 1;</p>
                     <p>}); </p>`,
 		alternative_function: `<p>const studentDesc = students.sort((student1, student2) => student1 > student2 ? -1 : 1);</p>`,
 		result: `console.log(studentDesc);`

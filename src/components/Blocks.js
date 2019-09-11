@@ -8,6 +8,7 @@ const BlockStyle = style.div`
     position: relative;
     .box{
         position: relative;
+        visibility: ${props => props.visibility || 'visible'};
         display: flex;
         justify-content: center;
         align-items: center;

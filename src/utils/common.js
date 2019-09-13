@@ -26,3 +26,16 @@ export const removeState = name => {
 		console.log('Got error while removing data: ', err);
 	}
 };
+
+export const colorArray = [
+	'#f38630',
+	'#989898',
+	'#6fb936',
+	'#F7A460',
+	'#D73739',
+	'#F9D88B',
+	'#D5EDEB',
+	'#59876C',
+	'#B3A3B5',
+	'#E87577'
+];

@@ -9,7 +9,7 @@ export const arrayMethod = {
                 <p>'Jscodelover',</p> 
                 <p>'Evangelina',</p> 
                 <p>'Romelia',</p> 
-                <p>'Trudi', 
+                <p>'Trudi',</p> 
                 <p>'Rosy'</p>
             <p>];</p>`,
 		function: ` <p>const getName = nameList.find(function(name){</p>

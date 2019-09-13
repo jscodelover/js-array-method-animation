@@ -1,12 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { TweenMax, Back } from 'gsap';
+import React, { useRef, useState } from 'react';
+import { TweenMax, TimelineMax, Back } from 'gsap';
 import theme from 'styled-theming';
 import defaultTheme from '../../style/themes';
 import CodePanel from '../../components/codepanel';
 import AnimationBox from '../../components/animationBox';
 import { arrayMethod } from '../../utils/data';
+import { colorArray } from '../../utils/common';
 import { SortStyle } from './sort.style';
-import Block from '../../components/Blocks';
+import { Block, Box } from '../../components/Blocks';
 
 function Sort() {
 	const block1 = useRef(null);
@@ -25,30 +26,28 @@ function Sort() {
 	const [boxHide2, handleBoxHide2] = useState(null);
 	const refBlockA = [block1, block2, block3, block4, block5, block6];
 	const refBlockB = [block7, block8, block9, block10, block11, block12];
-	useEffect(() => {
-		handleBoxHide1(true);
-		handleBoxHide2(true);
-		for (let ref of [
-			block1,
-			block2,
-			block3,
-			block4,
-			block5,
-			block6,
-			block7,
-			block8,
-			block9,
-			block10,
-			block11,
-			block12
-		]) {
-			TweenMax.fromTo(
+	const data = [
+		{ name: 'Akhil', colorId: 0 },
+		{ name: 'Rohan', colorId: 1 },
+		{ name: 'Vicky', colorId: 2 },
+		{ name: 'Niti', colorId: 3 },
+		{ name: 'Jack', colorId: 4 },
+		{ name: 'Huang', colorId: 5 }
+	];
+	const dataAsc = sorting(1);
+	const dataDesc = sorting(2);
+	async function sortAnimate(fn, refArray, sortData) {
+		await fn(true);
+		for (let [index, ref] of refArray.entries()) {
+			const t = TweenMax.fromTo(
 				ref.current,
 				3.5,
 				{
 					opacity: 0.4,
 					yoyo: true,
-					color: 'transparent'
+					color: 'transparent',
+					backgroundColor: colorArray[data[index].colorId],
+					rotationY: 0
 				},
 				{
 					rotationY: 360,
@@ -56,35 +55,42 @@ function Sort() {
 					ease: Back.easeInOut,
 					opacity: 1,
 					yoyo: true,
+					backgroundColor: colorArray[sortData[index].colorId],
 					color: theme('mode', {
 						light: defaultTheme.colors.black,
 						dark: defaultTheme.colors.white
 					})
 				}
 			);
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
 		}
-	}, []);
-	function BoxContainer(boxHide) {
-		return (
-			<Block fontSize={8.5} visibility={boxHide && 'hidden'}>
-				<div className='box'>Akhil</div>
-				<div className='box'>Rohan</div>
-				<div className='box'>Vicky</div>
-				<div className='box'>Niti</div>
-				<div className='box'>Jack</div>
-				<div className='box'>Huang</div>
-			</Block>
-		);
 	}
-	function animatingBox(ref, dataArray) {
+	function BoxContainer() {
+		return <Block fontSize={14}>{animatingBox(data)}</Block>;
+	}
+	function animatingBox(dataArray, ref) {
 		const renderData = dataArray.reduce((newArr, item, index) => {
 			return newArr.concat(
-				<div key={`${item}${index}`} className='box' ref={ref[index]}>
-					{item}
-				</div>
+				<Box
+					key={`${item.name}${index}`}
+					className='box'
+					ref={ref && ref[index]}
+					backgroundColor={colorArray[item.colorId]}
+				>
+					{item.name}
+				</Box>
 			);
 		}, []);
 		return renderData;
+	}
+	function sorting(type) {
+		const newData = [...data];
+		return newData.sort((item1, item2) => {
+			if (type === 1) return item1.name < item2.name ? -1 : 1;
+			return item1.name > item2.name ? -1 : 1;
+		});
 	}
 	return (
 		<SortStyle>
@@ -100,18 +106,15 @@ function Sort() {
 				/>
 				<div>{arrayMethod.sortA.result}</div>
 			</CodePanel>
-			<AnimationBox handleClick={() => console.log('click')}>
-				{BoxContainer(boxHide1)}
-				<Block fontSize={8.5} marginTop={'-50px'}>
-					{animatingBox(refBlockA, [
-						'Akhil',
-						'Huang',
-						'Jack',
-						'Niti',
-						'Rohan',
-						'Vicky'
-					])}
-				</Block>
+			<AnimationBox
+				handleClick={() => sortAnimate(handleBoxHide1, refBlockA, dataAsc)}
+			>
+				{BoxContainer()}
+				{boxHide1 && (
+					<Block fontSize={14} marginTop={'20px'}>
+						{animatingBox(dataAsc, refBlockA)}
+					</Block>
+				)}
 			</AnimationBox>
 
 			<h1>Sort in Descending Order</h1>
@@ -126,17 +129,16 @@ function Sort() {
 				/>
 				<div>{arrayMethod.sortD.result}</div>
 			</CodePanel>
-			{BoxContainer(boxHide2)}
-			<Block fontSize={8.5} marginTop={'-50px'}>
-				{animatingBox(refBlockB, [
-					'Vicky',
-					'Rohan',
-					'Niti',
-					'Jack',
-					'Huang',
-					'Akhil'
-				])}
-			</Block>
+			<AnimationBox
+				handleClick={() => sortAnimate(handleBoxHide2, refBlockB, dataDesc)}
+			>
+				{BoxContainer()}
+				{boxHide2 && (
+					<Block fontSize={14} marginTop={'20px'}>
+						{animatingBox(dataDesc, refBlockB)}
+					</Block>
+				)}
+			</AnimationBox>
 		</SortStyle>
 	);
 }

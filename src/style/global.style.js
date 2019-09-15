@@ -1,15 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 import theme from 'styled-theming';
-import degaultTheme from './themes';
+import defaultTheme from './themes';
 
 const fontColor = theme('mode', {
-	light: degaultTheme.colors.black2,
-	dark: degaultTheme.colors.white
+	light: defaultTheme.colors.black2,
+	dark: defaultTheme.colors.white
 });
 
 const bgColor = theme('mode', {
-	light: degaultTheme.colors.white,
-	dark: degaultTheme.colors.black2
+	light: defaultTheme.colors.white,
+	dark: defaultTheme.colors.black2
 });
 
 const GlobalStyle = createGlobalStyle`
@@ -90,6 +90,16 @@ const GlobalStyle = createGlobalStyle`
         display: none !important;
     }
 
+    .disable-animate-btn{
+        pointer-events: none;
+        .circle{
+            background: #8b8c90 !important;
+        }
+        .button-text{
+            color: #8b8c90 !important;
+        }
+    }
+
     /* react-select */
 
     .customSelect {
@@ -110,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
             margin-top: 1px !important;
             width: 150px !important;
             background-image: linear-gradient(to right, #94999c, #2c3e50) !important;
-            color: ${degaultTheme.colors.white};
+            color: ${defaultTheme.colors.white};
             box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;
         }
         &__option {
@@ -124,12 +134,12 @@ const GlobalStyle = createGlobalStyle`
         }
         &__indicator {
             svg {
-                color: ${degaultTheme.colors.white};
+                color: ${defaultTheme.colors.white};
             }
         }
         &__single-value,
         &__placeholder {
-            color: ${degaultTheme.colors.white} !important;
+            color: ${defaultTheme.colors.white} !important;
             font-weight: 600;
         }
     }

@@ -6,6 +6,7 @@ const Block = style.div`
     justify-content: space-evenly;
     margin-top: ${props => props.marginTop};
     position: relative;
+    height: 50px;
     & > div{
         font-size: ${props => props.fontSize || 10}px;
 

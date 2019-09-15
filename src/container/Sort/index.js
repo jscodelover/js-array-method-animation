@@ -75,7 +75,6 @@ function Sort() {
 			return newArr.concat(
 				<Box
 					key={`${item.name}${index}`}
-					className='box'
 					ref={ref && ref[index]}
 					backgroundColor={colorArray[item.colorId]}
 				>

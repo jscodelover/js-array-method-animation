@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
-import { TweenMax } from 'gsap';
+import React, { useRef, useState } from 'react';
+import { TweenMax, TimelineMax, Sine } from 'gsap';
 import CodePanel from '../../components/codepanel';
+import AnimationBox from '../../components/animationBox';
 import { arrayMethod } from '../../utils/data';
+import { Block, Box } from '../../components/Blocks';
+import { colorArray } from '../../utils/common';
 import { ReduceStyle } from './reduce.style';
-import Block from '../../components/Blocks';
 
 function Reduce() {
 	const reduceFn = useRef(null);
@@ -19,138 +21,98 @@ function Reduce() {
 	const block10 = useRef(null);
 	const block11 = useRef(null);
 	const block12 = useRef(null);
-	useEffect(() => {
-		TweenMax.fromTo(
-			reduceFn.current,
-			0.5,
-			{
-				x: '+=20',
-				yoyo: true,
-				repeat: 10
-			},
-			{ x: '-=20', yoyo: true, repeat: 10 }
-		).delay(4.2);
-		TweenMax.fromTo(
-			block1.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '45%', opacity: 0 } }
-		).delay(0.6);
-		TweenMax.fromTo(
-			block2.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '35%', opacity: 0 } }
-		).delay(1.2);
-		TweenMax.fromTo(
-			block3.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '15%', opacity: 0 } }
-		).delay(1.8);
-		TweenMax.fromTo(
-			block4.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '-15%', opacity: 0 } }
-		).delay(2.4);
-		TweenMax.fromTo(
-			block5.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '-35%', opacity: 0 } }
-		).delay(3);
-		TweenMax.fromTo(
-			block6.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '190px', left: '-45%', opacity: 0 } }
-		).delay(3.6);
-		TweenMax.fromTo(
-			block7.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
+	const refBlockA = [block1, block2, block3, block4, block5, block6];
+	const refBlockB = [block7, block8, block9, block10, block11, block12];
+	const left = ['45%', '35%', '15%', '-15%', '-35%', '-45%'];
+	const [boxHide, handleBoxHide] = useState(null);
+	const [play, handlePlay] = useState(false);
+	const data = [
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 0 },
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 1 },
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 2 },
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 3 },
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 4 },
+		{ obj: "{ country: ' ', name: ' ' }", colorId: 5 }
+	];
+
+	function reduceFnAnimate(count, limit) {
+		reduceFn.current && reduceFn.current.classList.remove('rotate-zero');
+		let onComplete = reduceFnAnimate;
+		if (count === 14)
+			onComplete = () => {
+				reduceFn.current && (reduceFn.current.className += ' rotate-zero');
+			};
+		if (++count > limit) return;
+
+		TweenMax.to(reduceFn.current, 0.15, {
+			x: R(-10, 10),
+			y: R(-10, 10),
+			scale: R(1.1, 0.9),
+			rotation: R(-10, 10),
+			ease: Sine.easeInOut,
+			onComplete: () => onComplete(count, limit)
+		});
+	}
+
+	function R(max, min) {
+		return Math.random() * (max - min) + min;
+	}
+
+	async function animateReduce() {
+		handlePlay(true);
+		await handleBoxHide(true);
+		setTimeout(() => {
+			reduceFnAnimate(0, 15);
+		}, 4200);
+		for (let [index, ref] of refBlockA.entries()) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: 0, left: 0, opacity: 1 } },
+				{ css: { top: '190px', left: left[index], opacity: 0 } }
+			).delay(0.6 * index + 1);
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		let delay = 6.7;
+		for (let ref of refBlockB) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: '-200px', left: '45%', opacity: 0 } },
+				{
+					css: {
+						left: '50%',
+						top: 0,
+						position: 'absolute',
+						transform: 'translateX(-50%)',
+						opacity: 0.2
+					}
 				}
-			}
-		).delay(6.7);
-		TweenMax.fromTo(
-			block8.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
-				}
-			}
-		).delay(7.3);
-		TweenMax.fromTo(
-			block9.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
-				}
-			}
-		).delay(7.9);
-		TweenMax.fromTo(
-			block10.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
-				}
-			}
-		).delay(8.5);
-		TweenMax.fromTo(
-			block11.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
-				}
-			}
-		).delay(9.1);
-		TweenMax.fromTo(
-			block12.current,
-			0.7,
-			{ css: { top: '-200px', left: '45%', opacity: 0 } },
-			{
-				css: {
-					left: '50%',
-					top: 0,
-					position: 'absolute',
-					transform: 'translateX(-50%)',
-					opacity: 0.2
-				}
-			}
-		).delay(9.7);
-	}, []);
+			).delay(delay);
+			delay = delay + 0.6;
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		setTimeout(() => handlePlay(false), 10400);
+	}
+	console.log(play);
+	function box(ref) {
+		const renderData = data.reduce((newArr, item, index) => {
+			return newArr.concat(
+				<Box
+					key={`${item.name}${index}`}
+					ref={ref && ref[index]}
+					backgroundColor={colorArray[item.colorId]}
+				>
+					{item.obj}
+				</Box>
+			);
+		}, []);
+		return renderData;
+	}
 	return (
 		<ReduceStyle>
 			<h1>Reduce Array Method</h1>
@@ -161,61 +123,21 @@ function Reduce() {
 				/>
 				<div>{arrayMethod.reduce.result}</div>
 			</CodePanel>
-			<div>
-				<Block fontSize={7}>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-					<div className='box'>{"{country: '', name: ''}"}</div>
-				</Block>
+			<AnimationBox
+				handleClick={animateReduce}
+				className={play && 'disable-animate-btn'}
+			>
+				<Block fontSize={7}>{box()}</Block>
 				<Block fontSize={7} marginTop='-50px'>
-					<div className='box' ref={block1}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block2}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block3}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block4}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block5}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block6}>
-						{"{country: '', name: ''}"}
-					</div>
+					{box(refBlockA)}
 				</Block>
 				<div className='reduceFn-container'>
 					<div ref={reduceFn} className='reduceFn'>
 						<span>Reduce Function</span>
 					</div>
 				</div>
-				<Block fontSize={7}>
-					<div className='box' ref={block7}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block8}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block9}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block10}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block11}>
-						{"{country: '', name: ''}"}
-					</div>
-					<div className='box' ref={block12}>
-						{"{country: '', name: ''}"}
-					</div>
-				</Block>
-			</div>
+				{boxHide && <Block fontSize={7}>{box(refBlockB)}</Block>}
+			</AnimationBox>
 		</ReduceStyle>
 	);
 }

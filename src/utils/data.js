@@ -61,7 +61,7 @@ export const arrayMethod = {
                 },</p>
                 <p>{
                     country: 'USA',
-                    pop: 'Harry',
+                    name: 'Harry',
                 },</p>
             <p>];</p>`,
 		function: ` <p>const indianCitizen = peopleData.reduce(function(acc, info){</p>

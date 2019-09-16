@@ -24,8 +24,10 @@ function Sort() {
 	const block12 = useRef(null);
 	const [boxHide1, handleBoxHide1] = useState(null);
 	const [boxHide2, handleBoxHide2] = useState(null);
+
 	const refBlockA = [block1, block2, block3, block4, block5, block6];
 	const refBlockB = [block7, block8, block9, block10, block11, block12];
+
 	const data = [
 		{ name: 'Akhil', colorId: 0 },
 		{ name: 'Rohan', colorId: 1 },
@@ -36,6 +38,7 @@ function Sort() {
 	];
 	const dataAsc = sorting(1);
 	const dataDesc = sorting(2);
+
 	async function sortAnimate(fn, refArray, sortData) {
 		await fn(true);
 		for (let [index, ref] of refArray.entries()) {

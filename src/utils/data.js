@@ -6,11 +6,11 @@ export const arrayMethod = {
                 <p>'Merle',</p> 
                 <p>'Remona',</p> 
                 <p>'Anabel',</p> 
-                <p>'Jscodelover',</p> 
                 <p>'Evangelina',</p> 
                 <p>'Romelia',</p> 
                 <p>'Trudi',</p> 
-                <p>'Rosy'</p>
+                <p>'Rosy,'</p>
+                <p>'Jscodelover'</p> 
             <p>];</p>`,
 		function: ` <p>const getName = nameList.find(function(name){</p>
                         <p>return name === 'Jscodelover';</p>
@@ -25,11 +25,11 @@ export const arrayMethod = {
                 <p>'Merle',</p> 
                 <p>'Remona',</p> 
                 <p>'Anabel',</p> 
-                <p>'Jscodelover',</p> 
                 <p>'Evangelina',</p> 
                 <p>'Romelia',</p> 
                 <p>'Trudi',</p> 
-                <p>'Rosy'</p>
+                <p>'Rosy,'</p>
+                <p>'Jscodelover'</p> 
             <p>];</p>`,
 		function: ` <p>const floorNo = floorOwners.findIndex(function(owner){</p>
                         <p>return owner === 'Jscodelover';</p>

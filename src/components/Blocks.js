@@ -9,6 +9,7 @@ const Block = style.div`
     height: 50px;
     & > div{
         font-size: ${props => props.fontSize || 10}px;
+        padding-left: ${props => props.paddingLeft};
 
     visibility: ${props => props.visibility || 'visible'};s
     }

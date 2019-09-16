@@ -21,19 +21,22 @@ function Reduce() {
 	const block10 = useRef(null);
 	const block11 = useRef(null);
 	const block12 = useRef(null);
+	const [boxHide, handleBoxHide] = useState(null);
+	const [play, handlePlay] = useState(false);
+
 	const refBlockA = [block1, block2, block3, block4, block5, block6];
 	const refBlockB = [block7, block8, block9, block10, block11, block12];
 	const left = ['45%', '35%', '15%', '-15%', '-35%', '-45%'];
-	const [boxHide, handleBoxHide] = useState(null);
-	const [play, handlePlay] = useState(false);
-	const data = [
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 0 },
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 1 },
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 2 },
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 3 },
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 4 },
-		{ obj: "{ country: ' ', name: ' ' }", colorId: 5 }
-	];
+
+	const dataA = createData("{ country: ' ', name: ' ' }");
+	const dataB = createData('name');
+
+	function createData(data) {
+		return colorArray.reduce((arr, color, index) => {
+			if (index < 6) return arr.concat({ obj: data, color });
+			return arr;
+		}, []);
+	}
 
 	function reduceFnAnimate(count, limit) {
 		reduceFn.current && reduceFn.current.classList.remove('rotate-zero');
@@ -98,14 +101,14 @@ function Reduce() {
 		}
 		setTimeout(() => handlePlay(false), 10400);
 	}
-	console.log(play);
-	function box(ref) {
+
+	function box(data, ref) {
 		const renderData = data.reduce((newArr, item, index) => {
 			return newArr.concat(
 				<Box
 					key={`${item.name}${index}`}
 					ref={ref && ref[index]}
-					backgroundColor={colorArray[item.colorId]}
+					backgroundColor={item.color}
 				>
 					{item.obj}
 				</Box>
@@ -113,6 +116,7 @@ function Reduce() {
 		}, []);
 		return renderData;
 	}
+
 	return (
 		<ReduceStyle>
 			<h1>Reduce Array Method</h1>
@@ -127,16 +131,22 @@ function Reduce() {
 				handleClick={animateReduce}
 				className={play && 'disable-animate-btn'}
 			>
-				<Block fontSize={7}>{box()}</Block>
-				<Block fontSize={7} marginTop='-50px'>
-					{box(refBlockA)}
+				<Block fontSize={9} paddingLeft='4px'>
+					{box(dataA)}
+				</Block>
+				<Block fontSize={9} marginTop='-50px' paddingLeft='4px'>
+					{box(dataA, refBlockA)}
 				</Block>
 				<div className='reduceFn-container'>
 					<div ref={reduceFn} className='reduceFn'>
 						<span>Reduce Function</span>
 					</div>
 				</div>
-				{boxHide && <Block fontSize={7}>{box(refBlockB)}</Block>}
+				{boxHide && (
+					<Block fontSize={9} paddingLeft='4px'>
+						{box(dataB, refBlockB)}
+					</Block>
+				)}
 			</AnimationBox>
 		</ReduceStyle>
 	);

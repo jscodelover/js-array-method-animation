@@ -6,7 +6,7 @@ import useToggle from '../../hooks/useToggle';
 import { NavStyle, SideBar } from './nav.style';
 
 function Nav(props) {
-	const [arrayMethod, handleChange] = useState(null);
+	const [arrayMethod, handleSelect] = useState(null);
 	const [screenWidth, handleResize] = useState(window.innerWidth);
 	const [showMenu, handleMenu] = useToggle();
 	const navRef = useRef(null);
@@ -66,7 +66,7 @@ function Nav(props) {
 			location: { pathname }
 		} = props;
 		const arMethod = options.find(method => pathname.includes(method.value));
-		handleChange(arMethod);
+		handleSelect(arMethod);
 	}, [props]);
 
 	useEffect(() => {
@@ -96,7 +96,7 @@ function Nav(props) {
 	}
 	const navItems = (
 		<ul>
-			<li onClick={() => handleChange(null)}>
+			<li onClick={() => handleSelect(null)}>
 				<Link to='/' className='linkRouter'>
 					Home
 				</Link>
@@ -109,7 +109,8 @@ function Nav(props) {
 					isClearable={false}
 					value={arrayMethod}
 					onChange={data => {
-						handleChange(data);
+						showMenu && handleMenu(false);
+						handleSelect(data);
 					}}
 					options={options}
 					components={{
@@ -120,7 +121,13 @@ function Nav(props) {
 			</li>
 			<li>About Me</li>
 			<li>
-				<button className='theme-btn' onClick={props.handleMode}>
+				<button
+					className='theme-btn'
+					onClick={() => {
+						showMenu && handleMenu(false);
+						props.handleMode();
+					}}
+				>
 					<svg
 						height='448pt'
 						viewBox='-12 0 448 448.04455'

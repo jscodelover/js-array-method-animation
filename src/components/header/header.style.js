@@ -4,19 +4,11 @@ import defaultTheme from '../../style/themes';
 const HeaderStyle = style.div`
     height: 90vh;
     position: relative;
-    clip-path: polygon(0 0, 0 80%, 50% 100%, 100% 80%, 100% 0);
-    .image-overlay{
-        position: fixed;
-        height: 90vh;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-image: linear-gradient(45deg, #27262659, #211c1c42);
-    }
     .image-header{
         width: 100%;
         height: 100%;
         object-fit: cover;
+        filter: contrast(0.6) brightness(0.9);
     }
     .heading{
         position: absolute;

@@ -76,6 +76,8 @@ const GlobalStyle = createGlobalStyle`
     .linkRouter{
         text-decoration: none;
         color: inherit;
+        width: 100%;
+        display: inline-block;
     }
 
     h1{

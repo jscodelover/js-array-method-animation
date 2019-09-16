@@ -35,7 +35,6 @@ function Header(){
     
     return (
         <HeaderStyle>
-            <div className="image-overlay"></div>
             <ProgressiveImage className="image-header" alt="bg-image" src="/image/header-bg.jpeg" overlaySrc="/image/header-bg-low.jpg" />
             <div className="heading" style={styleHeading}>
                 <span className="heading__text heading__text--1"  ref={headerRef1}>Animate</span>  

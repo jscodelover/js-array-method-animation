@@ -40,25 +40,27 @@ function App(props) {
 	const mode = theme ? 'light' : 'dark';
 	return (
 		<ThemeProvider theme={{ mode: mode }}>
-			<Transitions pageKey={props.location.key}>
+			<>
 				<GlobalStyle />
 				<Suspense fallback={<Loader />}>
 					<Nav handleMode={handleModeChange} />
 					<Header />
-					<div className='app-container'>
-						<SubHeader />
-						<Switch location={props.location}>
-							<Route exact path='/' component={Home} />
-							<Route path='/map' component={MapMethod} />
-							<Route path='/find' component={FindMethod} />
-							<Route path='/findindex' component={FindIndexMethod} />
-							<Route path='/reduce' component={ReduceMethod} />
-							<Route path='/filter' component={FilterMethod} />
-							<Route path='/sort' component={SortMethod} />
-						</Switch>
-					</div>
+					<Transitions pageKey={props.location.key}>
+						<div className='app-container'>
+							<SubHeader />
+							<Switch location={props.location}>
+								<Route exact path='/' component={Home} />
+								<Route path='/map' component={MapMethod} />
+								<Route path='/find' component={FindMethod} />
+								<Route path='/findindex' component={FindIndexMethod} />
+								<Route path='/reduce' component={ReduceMethod} />
+								<Route path='/filter' component={FilterMethod} />
+								<Route path='/sort' component={SortMethod} />
+							</Switch>
+						</div>
+					</Transitions>
 				</Suspense>
-			</Transitions>
+			</>
 		</ThemeProvider>
 	);
 }

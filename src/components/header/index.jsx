@@ -21,7 +21,7 @@ function Header(){
             .delay(0.3);
         TweenMax
             .to(headerRef3.current, 1, {
-                bottom: '0', y: 0,
+                bottom: '0', y: 0, opacity: 1,
                 onComplete: () => {
                     handleStyle({
                         boxShadow: 'rgba(0, 0, 0, 0) 0px 0px 0px 1px, rgb(0, 0, 0) 0px -1px 20px 0px',

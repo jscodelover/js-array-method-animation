@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 export default ({ pageKey, children }) => (
 	<Wrapper>
-		{console.log({ pageKey, children })}
 		<TransitionGroup className='transition-group'>
 			<CSSTransition
 				key={pageKey}

@@ -39,3 +39,10 @@ export const colorArray = [
 	'#B3A3B5',
 	'#E87577'
 ];
+
+export const createData = (data, ele) => {
+	return colorArray.reduce((arr, color, index) => {
+		if (index < ele) return arr.concat({ obj: data, color });
+		return arr;
+	}, []);
+};

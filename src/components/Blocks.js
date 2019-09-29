@@ -33,7 +33,9 @@ const Box = style.div`
     }
 `;
 
-const BlockStyle = style.div`
+const BlockStyle = style.div.attrs({
+	className: props => props.className || ''
+})`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

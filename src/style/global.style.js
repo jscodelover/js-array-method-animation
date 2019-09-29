@@ -94,12 +94,16 @@ const GlobalStyle = createGlobalStyle`
 
     .disable-animate-btn{
         pointer-events: none;
-        .circle{
+        & .circle{
             background: #8b8c90 !important;
         }
-        .button-text{
+        & .button-text{
             color: #8b8c90 !important;
         }
+    }
+
+    .mb-140{
+        margin-bottom: 140px !important;
     }
 
     /* react-select */

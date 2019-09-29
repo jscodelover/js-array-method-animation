@@ -2,7 +2,7 @@ import style from 'styled-components';
 import defaultTheme from '../../style/themes';
 
 const HeaderStyle = style.div`
-    height: 90vh;
+    height: 70vh;
     position: relative;
     .image-header{
         width: 100%;
@@ -38,7 +38,8 @@ const HeaderStyle = style.div`
             }
             &--3{
                 transform: translateY(300px);
-                bottom: -200%;
+                bottom: -10%;
+                opacity: 0;
             }
         }
         @media(max-width: 628px){

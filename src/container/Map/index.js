@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
-import { TweenMax, Power0 } from 'gsap';
+import React, { useRef, useState } from 'react';
+import { TweenMax, Power0, TimelineMax } from 'gsap';
 import CodePanel from '../../components/codepanel';
 import { arrayMethod } from '../../utils/data';
+import { createData } from '../../utils/common';
+import { Block, Box } from '../../components/Blocks';
 import { MapStyle } from './map.style';
-import Block from '../../components/Blocks';
+import AnimationBox from '../../components/animationBox';
 
 function Map() {
 	const mapFn = useRef(null);
@@ -17,73 +19,67 @@ function Map() {
 	const block8 = useRef(null);
 	const block9 = useRef(null);
 	const block10 = useRef(null);
-	useEffect(() => {
+	const [boxHide, handleBoxHide] = useState(null);
+	const [play, handlePlay] = useState(false);
+
+	const refBlockA = [block1, block2, block3, block4, block5];
+	const refBlockB = [block6, block7, block8, block9, block10];
+	const left = ['35%', '18%', '0%', '-15%', '-35%'];
+
+	const dataA = createData("{name:'', like: ''}", 5);
+	const dataB = createData('{name: like,}', 5);
+
+	async function animateMap() {
+		handlePlay(true);
+		await handleBoxHide(true);
+		mapFn.current && mapFn.current.classList.remove('mb-140');
+		setTimeout(() => (mapFn.current.className += ' mb-140'), 3600);
 		TweenMax.to(mapFn.current, 2, {
 			rotation: 360,
 			ease: Power0.easeOut,
 			repeat: 1
 		}).delay(3.6);
-		TweenMax.fromTo(
-			block1.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '215px', left: '35%', opacity: 0 } }
-		).delay(0.6);
-		TweenMax.fromTo(
-			block2.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '215px', left: '18%', opacity: 0 } }
-		).delay(1.2);
-		TweenMax.fromTo(
-			block3.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '215px', left: '0%', opacity: 0 } }
-		).delay(1.8);
-		TweenMax.fromTo(
-			block4.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '215px', left: '-15%', opacity: 0 } }
-		).delay(2.4);
-		TweenMax.fromTo(
-			block5.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '215px', left: '-35%', opacity: 0 } }
-		).delay(3);
-		TweenMax.fromTo(
-			block6.current,
-			0.7,
-			{ css: { top: '-215px', left: '35%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(4.2);
-		TweenMax.fromTo(
-			block7.current,
-			0.7,
-			{ css: { top: '-215px', left: '18%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(4.8);
-		TweenMax.fromTo(
-			block8.current,
-			0.7,
-			{ css: { top: '-215px', left: '0%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(5.4);
-		TweenMax.fromTo(
-			block9.current,
-			0.7,
-			{ css: { top: '-215px', left: '-15%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(6);
-		TweenMax.fromTo(
-			block10.current,
-			0.7,
-			{ css: { top: '-215px', left: '-35%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(6.6);
-	}, []);
+		for (let [index, ref] of refBlockA.entries()) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: 0, left: 0, opacity: 1 } },
+				{ css: { top: '215px', left: left[index], opacity: 0 } }
+			).delay(0.6 * index + 1);
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		let delay = 4.2;
+		for (let [index, ref] of refBlockB.entries()) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: '-215px', left: left[index], opacity: 0 } },
+				{ css: { top: 0, left: 0, opacity: 1 } }
+			).delay(delay);
+			delay = delay + 0.6;
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		setTimeout(() => handlePlay(false), 8700);
+	}
+
+	function box(data, ref) {
+		const renderData = data.reduce((newArr, item, index) => {
+			return newArr.concat(
+				<Box
+					key={`${item.name}${index}`}
+					ref={ref && ref[index]}
+					backgroundColor={item.color}
+				>
+					{item.obj}
+				</Box>
+			);
+		}, []);
+		return renderData;
+	}
 	return (
 		<MapStyle>
 			<h1>Map Array Method</h1>
@@ -92,53 +88,26 @@ function Map() {
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.function }} />
 				<div>{arrayMethod.map.result}</div>
 			</CodePanel>
-			<div>
-				<Block fontSize={7}>
-					<div className='box'>{"{name:'', like: ''}"}</div>
-					<div className='box'>{"{name:'', like: ''}"}</div>
-					<div className='box'>{"{name:'', like: ''}"}</div>
-					<div className='box'>{"{name:'', like: ''}"}</div>
-					<div className='box'>{"{name:'', like: ''}"}</div>
+			<AnimationBox
+				handleClick={animateMap}
+				className={play && 'disable-animate-btn'}
+			>
+				<Block fontSize={11} paddingLeft='6px'>
+					{box(dataA)}
 				</Block>
-				<Block fontSize={7} marginTop='-50px'>
-					<div className='box' ref={block1}>
-						{"{name:'', like: ''}"}
-					</div>
-					<div className='box' ref={block2}>
-						{"{name:'', like: ''}"}
-					</div>
-					<div className='box' ref={block3}>
-						{"{name:'', like: ''}"}
-					</div>
-					<div className='box' ref={block4}>
-						{"{name:'', like: ''}"}
-					</div>
-					<div className='box' ref={block5}>
-						{"{name:'', like: ''}"}
-					</div>
+				<Block fontSize={11} paddingLeft='6px' marginTop='-50px'>
+					{box(dataA, refBlockA)}
 				</Block>
 				<div className='mapFn-container'>
 					<div ref={mapFn} className='mapFn' />
 					<span>Map Function</span>
 				</div>
-				<Block fontSize={7}>
-					<div className='box' ref={block6}>
-						{'{name: like,}'}
-					</div>
-					<div className='box' ref={block7}>
-						{'{name: like}'}
-					</div>
-					<div className='box' ref={block8}>
-						{'{name: like}'}
-					</div>
-					<div className='box' ref={block9}>
-						{'{name: like}'}
-					</div>
-					<div className='box' ref={block10}>
-						{'{name: like}'}
-					</div>
-				</Block>
-			</div>
+				{boxHide && (
+					<Block fontSize={11} paddingLeft='6px' marginTop='-50px'>
+						{box(dataB, refBlockB)}
+					</Block>
+				)}
+			</AnimationBox>
 		</MapStyle>
 	);
 }

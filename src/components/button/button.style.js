@@ -20,9 +20,7 @@ const colorbtn = theme('mode', {
 const ButtonStyle = style.div`
     display: inline-block;
     .btn{
-        background-image: linear-gradient(to right, ${
-					defaultTheme.colors.primaryColor
-				}, ${defaultTheme.colors.secondaryColor});
+        background-image: linear-gradient(to right, ${defaultTheme.colors.primaryColor}, ${defaultTheme.colors.secondaryColor});
         color: ${defaultTheme.colors.btnTextColor};
         padding: 6px 18px;
         font-size: 18px;

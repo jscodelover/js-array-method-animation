@@ -4,7 +4,7 @@ import CodePanel from '../../components/codepanel';
 import AnimationBox from '../../components/animationBox';
 import { arrayMethod } from '../../utils/data';
 import { Block, Box } from '../../components/Blocks';
-import { colorArray } from '../../utils/common';
+import { createData } from '../../utils/common';
 import { ReduceStyle } from './reduce.style';
 
 function Reduce() {
@@ -28,22 +28,16 @@ function Reduce() {
 	const refBlockB = [block7, block8, block9, block10, block11, block12];
 	const left = ['45%', '35%', '15%', '-15%', '-35%', '-45%'];
 
-	const dataA = createData("{ country: ' ', name: ' ' }");
-	const dataB = createData('name');
-
-	function createData(data) {
-		return colorArray.reduce((arr, color, index) => {
-			if (index < 6) return arr.concat({ obj: data, color });
-			return arr;
-		}, []);
-	}
+	const dataA = createData("{ country: ' ', name: ' ' }", 6);
+	const dataB = createData('name', 6);
 
 	function reduceFnAnimate(count, limit) {
 		reduceFn.current && reduceFn.current.classList.remove('rotate-zero');
 		let onComplete = reduceFnAnimate;
 		if (count === 14)
 			onComplete = () => {
-				reduceFn.current && (reduceFn.current.className += ' rotate-zero');
+				reduceFn.current &&
+					(reduceFn.current.className += ' rotate-zero mb-140');
 			};
 		if (++count > limit) return;
 
@@ -64,6 +58,7 @@ function Reduce() {
 	async function animateReduce() {
 		handlePlay(true);
 		await handleBoxHide(true);
+		reduceFn.current && reduceFn.current.classList.remove('mb-140');
 		setTimeout(() => {
 			reduceFnAnimate(0, 15);
 		}, 4200);
@@ -143,7 +138,7 @@ function Reduce() {
 					</div>
 				</div>
 				{boxHide && (
-					<Block fontSize={9} paddingLeft='4px'>
+					<Block fontSize={9} paddingLeft='4px' className='result-container'>
 						{box(dataB, refBlockB)}
 					</Block>
 				)}

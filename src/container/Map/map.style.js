@@ -8,7 +8,7 @@ const MapStyle = style.div`
             height: 120px;
             background-image: linear-gradient(to right bottom, #5f7dac, #009dd5, #00bed6, #00d8a7, #12eb4d);
             border-radius: 20px;
-            margin: 90px auto;    
+            margin: 90px auto 0px;    
         }
         & > span{
             color: white;

@@ -3,9 +3,9 @@ import style from 'styled-components';
 
 const Image = style.img`
   position: absolute;
+  top: 0;
   filter: blur(1px);
   transition: opacity ease-in 1000ms;
-  clipPath: inset(0);
 `; 
 
 function ProgressiveImage(props){

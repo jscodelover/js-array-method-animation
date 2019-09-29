@@ -19,8 +19,12 @@ const ReduceStyle = style.div`
         }
         .rotate-zero{
             transform: scale(1) !important;
-            margin-bottom: 90px;
         }
+    }
+    .result-container{
+        position: absolute;
+        left: 50%;
+        bottom: 40px;
     }
 `;
 

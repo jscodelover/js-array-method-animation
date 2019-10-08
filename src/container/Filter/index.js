@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
-import { TweenMax } from 'gsap';
+import React, { useRef, useState } from 'react';
+import { TweenMax, TimelineMax } from 'gsap';
 import CodePanel from '../../components/codepanel';
 import { arrayMethod } from '../../utils/data';
 import { FilterStyle } from './filter.style';
-import Block from '../../components/Blocks';
+import { Block, Box } from '../../components/Blocks';
+import AnimationBox from '../../components/animationBox';
+import { colorArray } from '../../utils/common';
 
 function Filter() {
 	const filterFn = useRef(null);
@@ -13,8 +15,30 @@ function Filter() {
 	const block4 = useRef(null);
 	const block5 = useRef(null);
 	const block6 = useRef(null);
-	useEffect(() => {
-		// filterFn.current.classList.remove('rotate-zero');
+	const [play, handlePlay] = useState(false);
+	const [boxHide, handleBoxHide] = useState(null);
+
+	const refBlockA = [block1, block2, block3, block4];
+	const refBlockB = [block5, block6];
+
+	const dataA = [
+		{ obj: 'franchise: DC', color: colorArray[2] },
+		{ obj: 'franchise: Marvel', color: colorArray[3] },
+		{ obj: 'franchise: Marvel', color: colorArray[1] },
+		{ obj: 'franchise: DC', color: colorArray[5] }
+	];
+	const dataB = [
+		{ obj: 'franchise: Marvel', color: colorArray[3] },
+		{ obj: 'franchise: Marvel', color: colorArray[1] }
+	];
+
+	const leftA = ['30%', '10%', '-10%', '-30%'];
+	const leftB = ['10%', '-10%'];
+
+	async function animateFilter() {
+		handlePlay(true);
+		await handleBoxHide(true);
+		filterFn.current.classList.remove('rotate-zero');
 		TweenMax.fromTo(
 			filterFn.current,
 			0.5,
@@ -33,44 +57,49 @@ function Filter() {
 					filterFn.current && (filterFn.current.className += ' rotate-zero');
 				}
 			}
-		).delay(4.2);
-		TweenMax.fromTo(
-			block1.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '150px', left: '30%', opacity: 0 } }
-		).delay(0.6);
-		TweenMax.fromTo(
-			block2.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '150px', left: '10%', opacity: 0 } }
-		).delay(1.2);
-		TweenMax.fromTo(
-			block3.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '150px', left: '-10%', opacity: 0 } }
-		).delay(1.8);
-		TweenMax.fromTo(
-			block4.current,
-			0.7,
-			{ css: { top: 0, left: 0, opacity: 1 } },
-			{ css: { top: '150px', left: '-30%', opacity: 0 } }
-		).delay(2.4);
-		TweenMax.fromTo(
-			block5.current,
-			0.7,
-			{ css: { top: '-150px', left: '10%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(3);
-		TweenMax.fromTo(
-			block6.current,
-			0.7,
-			{ css: { top: '-150px', left: '-10%', opacity: 0 } },
-			{ css: { top: 0, left: 0, opacity: 1 } }
-		).delay(3.6);
-	}, []);
+		);
+		for (let [index, ref] of refBlockA.entries()) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: 0, left: 0, opacity: 1 } },
+				{ css: { top: '150px', left: leftA[index], opacity: 0 } }
+			).delay(0.6 * index + 1);
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		let delay = 4.2;
+		for (let [index, ref] of refBlockB.entries()) {
+			const t = TweenMax.fromTo(
+				ref.current,
+				0.7,
+				{ css: { top: '-150px', left: leftB[index], opacity: 0 } },
+				{ css: { top: 0, left: 0, opacity: 1 } }
+			).delay(delay);
+			delay = 0.6 + delay;
+			const tl = new TimelineMax();
+			tl.add(t);
+			tl.play();
+		}
+		setTimeout(() => handlePlay(false), 5500);
+	}
+
+	function box(data, ref) {
+		const renderData = data.reduce((newArr, item, index) => {
+			return newArr.concat(
+				<Box
+					key={`${item.obj}-${index}`}
+					ref={ref && ref[index]}
+					backgroundColor={item.color}
+				>
+					{item.obj}
+				</Box>
+			);
+		}, []);
+		return renderData;
+	}
+
 	return (
 		<FilterStyle>
 			<h1>Filter Array Method</h1>
@@ -87,42 +116,27 @@ function Filter() {
 				/>
 				<div>{arrayMethod.filter.result}</div>
 			</CodePanel>
-			<div>
-				<Block fontSize={7}>
-					<div className='box'>{"{name: '', franchise: ''}"}</div>
-					<div className='box'>{"{name: '', franchise: ''}"}</div>
-					<div className='box'>{"{name: '', franchise: ''}"}</div>
-					<div className='box'>{"{name: '', franchise: ''}"}</div>
+			<AnimationBox
+				handleClick={animateFilter}
+				className={play && 'disable-animate-btn'}
+			>
+				<Block fontSize={9} paddingLeft='6px'>
+					{box(dataA)}
 				</Block>
-				<Block fontSize={7} marginTop='-50px'>
-					<div className='box' ref={block1}>
-						{"{name: '', franchise: ''}"}
-					</div>
-					<div className='box' ref={block2}>
-						{"{name: '', franchise: ''}"}
-					</div>
-					<div className='box' ref={block3}>
-						{"{name: '', franchise: ''}"}
-					</div>
-					<div className='box' ref={block4}>
-						{"{name: '', franchise: ''}"}
-					</div>
+				<Block fontSize={9} paddingLeft='6px' marginTop='-50px'>
+					{box(dataA, refBlockA)}
 				</Block>
 				<div className='filterFn-container'>
 					<div ref={filterFn} className='filterFn rotate-zero'>
 						<span>Filter Function</span>
 					</div>
 				</div>
-				<Block fontSize={7}>
-					<div className='box d-none'></div>
-					<div className='box' ref={block5}>
-						{"{name: '', franchise: ''}"}
-					</div>
-					<div className='box' ref={block6}>
-						{"{name: '', franchise: ''}"}
-					</div>
-				</Block>
-			</div>
+				{boxHide && (
+					<Block fontSize={9} paddingLeft='6px'>
+						{box(dataB, refBlockB)}
+					</Block>
+				)}
+			</AnimationBox>
 		</FilterStyle>
 	);
 }

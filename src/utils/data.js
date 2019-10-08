@@ -1,19 +1,20 @@
 export const arrayMethod = {
 	find: {
 		data: `<p>const nameList = [</p>
-                <p>'Jaclyn',</p> 
-                <p>'Magaly',</p> 
-                <p>'Merle',</p> 
-                <p>'Remona',</p> 
-                <p>'Anabel',</p> 
-                <p>'Evangelina',</p> 
-                <p>'Romelia',</p> 
-                <p>'Trudi',</p> 
-                <p>'Rosy,'</p>
-                <p>'Jscodelover'</p> 
+                
+            <p>{ firstname: 'Jaclyn', surname: 'B' },</p>
+            <p>{ firstname: 'Magaly', surname: 'Y' },</p>
+            <p>{ firstname: 'Merle', surname: ''K },</p>
+            <p>{ firstname: 'Remona', surname: 'L' },</p>
+            <p>{ firstname: 'Anabel', surname: 'S' },</p>
+            <p>{ firstname: 'Evangelina', surname: 'D' },</p>
+            <p>{ firstname: 'Jscodelover', surname: 'B' },</p>
+            <p>{ firstname: 'Romelia', surname: 'G' },</p>
+            <p>{ firstname: 'Trudi', surname: 'T' },</p>
+            <p>{ firstname: 'Rosy', surname: 'S' }</p>
             <p>];</p>`,
 		function: ` <p>const getName = nameList.find(function(name){</p>
-                        <p>return name === 'Jscodelover';</p>
+                        <p>return name.firstname === 'Jscodelover';</p>
                     <p>});</p>`,
 		alternative_function: `<p>const getName = nameList.find(name => name === 'Jscodelover');</p>`,
 		result: `console.log(getname);`
@@ -26,10 +27,10 @@ export const arrayMethod = {
                 <p>'Remona',</p> 
                 <p>'Anabel',</p> 
                 <p>'Evangelina',</p> 
+                <p>'Jscodelover',</p> 
                 <p>'Romelia',</p> 
                 <p>'Trudi',</p> 
-                <p>'Rosy,'</p>
-                <p>'Jscodelover'</p> 
+                <p>'Rosy'</p>
             <p>];</p>`,
 		function: ` <p>const floorNo = floorOwners.findIndex(function(owner){</p>
                         <p>return owner === 'Jscodelover';</p>

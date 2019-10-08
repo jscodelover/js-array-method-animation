@@ -26,19 +26,24 @@ function Map() {
 	const refBlockB = [block6, block7, block8, block9, block10];
 	const left = ['35%', '18%', '0%', '-15%', '-35%'];
 
-	const dataA = createData("{name:'', like: ''}", 5);
-	const dataB = createData('{name: like,}', 5);
+	const dataA = createData("{name:'A', like:'B'}", 5);
+	const dataB = createData('{A: B}', 5);
 
 	async function animateMap() {
 		handlePlay(true);
 		await handleBoxHide(true);
 		mapFn.current && mapFn.current.classList.remove('mb-140');
 		setTimeout(() => (mapFn.current.className += ' mb-140'), 3600);
-		TweenMax.to(mapFn.current, 2, {
-			rotation: 360,
-			ease: Power0.easeOut,
-			repeat: 1
-		}).delay(3.6);
+		TweenMax.fromTo(
+			mapFn.current,
+			2,
+			{ rotation: 0 },
+			{
+				rotation: 360,
+				ease: Power0.easeOut,
+				repeat: 1
+			}
+		).delay(3.6);
 		for (let [index, ref] of refBlockA.entries()) {
 			const t = TweenMax.fromTo(
 				ref.current,
@@ -92,10 +97,10 @@ function Map() {
 				handleClick={animateMap}
 				className={play && 'disable-animate-btn'}
 			>
-				<Block fontSize={11} paddingLeft='6px'>
+				<Block fontSize={11} paddingLeft='3px'>
 					{box(dataA)}
 				</Block>
-				<Block fontSize={11} paddingLeft='6px' marginTop='-50px'>
+				<Block fontSize={11} paddingLeft='3px' marginTop='-50px'>
 					{box(dataA, refBlockA)}
 				</Block>
 				<div className='mapFn-container'>
@@ -103,7 +108,7 @@ function Map() {
 					<span>Map Function</span>
 				</div>
 				{boxHide && (
-					<Block fontSize={11} paddingLeft='6px' marginTop='-50px'>
+					<Block fontSize={11} paddingLeft='1px' marginTop='-50px'>
 						{box(dataB, refBlockB)}
 					</Block>
 				)}

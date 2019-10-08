@@ -21,9 +21,10 @@ const NavStyle = style.nav`
     position: fixed;
     top: 0px;
     width: 100%;
-    height: 50px;
-    padding: 6px 80px;
+    height: 70px;
+    padding: 15px 80px;
     z-index: 10;
+    color: #000;
     ul{
         text-align: right;
         list-style: none;
@@ -81,8 +82,8 @@ const SideBar = style.div`
                 width: 100%;
                 text-align: center;
                 font-size: 20px;
-                &:nth-child(2){
-                    margin: 15px 0px;
+                &:not(:first-of-type){
+                    margin: 15px 0px 0px; 
                 }
                 .customSelect{
                     &__control{
@@ -92,6 +93,9 @@ const SideBar = style.div`
                         width: 190px !important;
                         background-color: #525252 !important;
                     }   
+                }
+                .theme-btn{
+                    margin-left: 0px;
                 }
             }
         }

@@ -8,7 +8,7 @@ const HeaderStyle = style.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: contrast(0.6) brightness(0.9);
+        filter:  contrast(0.9) opacity(0.9) brightness(0.7);
     }
     .heading{
         position: absolute;
@@ -26,7 +26,7 @@ const HeaderStyle = style.div`
         align-items: center;
         &__text{    
             position: relative;
-            text-shadow: 6px 2px 0px rgb(35, 34, 34);
+            text-shadow: 8px 0px 0px rgb(35,34,34);
             color: ${defaultTheme.colors.white};
             display: inline-block;
             text-align: center;

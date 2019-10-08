@@ -70,6 +70,7 @@ function Nav(props) {
 	}, [props]);
 
 	useEffect(() => {
+		handleScroll();
 		window.addEventListener('scroll', handleScroll);
 		window.addEventListener('resize', handleScroll);
 		return () => {
@@ -79,20 +80,12 @@ function Nav(props) {
 	}, []);
 	function handleScroll() {
 		handleResize(window.innerWidth);
-		if (
-			(window.pageYOffset > 500 || window.innerWidth < 628) &&
-			window.pageYOffset > 20
-		) {
+		screenWidth > 628 && handleMenu(false);
+		navRef.current &&
 			TweenLite.to(navRef.current, 1, {
-				backgroundImage: 'linear-gradient(to right, #94999c, #2c3e50)',
+				background: window.pageYOffset > 20 ? 'rgba(0, 0, 0, 0.6)' : 'none',
 				ease: Power3.easeOut
 			});
-		} else {
-			TweenLite.to(navRef.current, 1, {
-				backgroundImage: 'none',
-				ease: Power3.easeOut
-			});
-		}
 	}
 	const navItems = (
 		<ul>
@@ -140,7 +133,7 @@ function Nav(props) {
 			</li>
 		</ul>
 	);
-	return showMenu ? (
+	return showMenu && screenWidth < 628 ? (
 		<SideBar>
 			<div className='backdrop' />
 			<NavStyle>{navItems}</NavStyle>

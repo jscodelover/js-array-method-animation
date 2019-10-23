@@ -78,7 +78,14 @@ function Reduce() {
 			const t = TweenMax.fromTo(
 				ref.current,
 				0.7,
-				{ css: { top: '-200px', left: '45%', opacity: 0 } },
+				{
+					css: {
+						top: '-200px',
+						left: 0,
+						transform: 'translateX(-24px)',
+						opacity: 1
+					}
+				},
 				{
 					css: {
 						left: '50%',
@@ -97,13 +104,14 @@ function Reduce() {
 		setTimeout(() => handlePlay(false), 10400);
 	}
 
-	function box(data, ref) {
+	function box(data, ref, position) {
 		const renderData = data.reduce((newArr, item, index) => {
 			return newArr.concat(
 				<Box
 					key={`${item.name}${index}`}
 					ref={ref && ref[index]}
 					backgroundColor={item.color}
+					position={position}
 				>
 					{item.obj}
 				</Box>
@@ -137,9 +145,9 @@ function Reduce() {
 						<span>Reduce Function</span>
 					</div>
 				</div>
-				{boxHide && (
+				{true && (
 					<Block fontSize={9} paddingLeft='4px' className='result-container'>
-						{box(dataB, refBlockB)}
+						{box(dataB, refBlockB, 'absolute')}
 					</Block>
 				)}
 			</AnimationBox>

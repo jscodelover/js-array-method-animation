@@ -39,6 +39,8 @@ function Filter() {
 		handlePlay(true);
 		await handleBoxHide(true);
 		filterFn.current.classList.remove('rotate-zero');
+		!filterFn.current.classList.contains(' mb-90') &&
+			(filterFn.current.className += ' mb-90');
 		TweenMax.fromTo(
 			filterFn.current,
 			0.5,

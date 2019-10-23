@@ -16,7 +16,7 @@ const Block = style.div`
 `;
 
 const Box = style.div`
-    position: relative;
+    position: ${props => props.position || 'relative'};
     display: flex;
     justify-content: center;
     align-items: center;

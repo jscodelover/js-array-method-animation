@@ -17,7 +17,8 @@ function Nav(props) {
 				<Link to='/filter' className='linkRouter'>
 					Filter Method
 				</Link>
-			)
+			),
+			name: 'Filter Method'
 		},
 		{
 			value: 'map',
@@ -25,7 +26,8 @@ function Nav(props) {
 				<Link to='/map' className='linkRouter'>
 					Map Method
 				</Link>
-			)
+			),
+			name: 'Map Method'
 		},
 		{
 			value: 'find',
@@ -33,7 +35,8 @@ function Nav(props) {
 				<Link to='/find' className='linkRouter'>
 					Find Method
 				</Link>
-			)
+			),
+			name: 'Find Method'
 		},
 		{
 			value: 'findIndex',
@@ -41,7 +44,8 @@ function Nav(props) {
 				<Link to='/findindex' className='linkRouter'>
 					Find-Index Method
 				</Link>
-			)
+			),
+			name: 'Find-Index Method'
 		},
 		{
 			value: 'reduce',
@@ -49,7 +53,8 @@ function Nav(props) {
 				<Link to='/reduce' className='linkRouter'>
 					Reduce Method
 				</Link>
-			)
+			),
+			name: 'Reduce Method'
 		},
 		{
 			value: 'sort',
@@ -57,7 +62,8 @@ function Nav(props) {
 				<Link to='/sort' className='linkRouter'>
 					Sort Method
 				</Link>
-			)
+			),
+			name: 'Sort Method'
 		}
 	];
 
@@ -80,7 +86,7 @@ function Nav(props) {
 	}, []);
 	function handleScroll() {
 		handleResize(window.innerWidth);
-		screenWidth > 628 && handleMenu(false);
+		screenWidth > 628 && showMenu && handleMenu(false);
 		navRef.current &&
 			TweenLite.to(navRef.current, 1, {
 				background: window.pageYOffset > 20 ? 'rgba(0, 0, 0, 0.6)' : 'none',

@@ -83,7 +83,7 @@ function Reduce() {
 						top: '-200px',
 						left: 0,
 						transform: 'translateX(-24px)',
-						opacity: 1
+						opacity: 0
 					}
 				},
 				{
@@ -145,7 +145,7 @@ function Reduce() {
 						<span>Reduce Function</span>
 					</div>
 				</div>
-				{true && (
+				{boxHide && (
 					<Block fontSize={9} paddingLeft='4px' className='result-container'>
 						{box(dataB, refBlockB, 'absolute')}
 					</Block>

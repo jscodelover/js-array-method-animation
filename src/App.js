@@ -8,15 +8,25 @@ import SubHeader from './components/subHeader';
 import { saveState, loadState } from './utils/common';
 import GlobalStyle from './style/global.style';
 
-const Header = lazy(() => import('./components/header'));
-const Nav = lazy(() => import('./components/nav'));
-const Home = lazy(() => import('./container/Home'));
-const MapMethod = lazy(() => import('./container/Map'));
-const FindMethod = lazy(() => import('./container/Find'));
-const FindIndexMethod = lazy(() => import('./container/FindIndex'));
-const ReduceMethod = lazy(() => import('./container/Reduce'));
-const FilterMethod = lazy(() => import('./container/Filter'));
-const SortMethod = lazy(() => import('./container/Sort'));
+// const Header = lazy(() => import('./components/header'));
+// const Nav = lazy(() => import('./components/nav'));
+// const Home = lazy(() => import('./container/Home'));
+// const MapMethod = lazy(() => import('./container/Map'));
+// const FindMethod = lazy(() => import('./container/Find'));
+// const FindIndexMethod = lazy(() => import('./container/FindIndex'));
+// const ReduceMethod = lazy(() => import('./container/Reduce'));
+// const FilterMethod = lazy(() => import('./container/Filter'));
+// const SortMethod = lazy(() => import('./container/Sort'));
+
+import Header from './components/header';
+import Nav from './components/nav';
+import Home from './container/Home';
+import MapMethod from './container/Map';
+import FindMethod from './container/Find';
+import FindIndexMethod from './container/FindIndex';
+import ReduceMethod from './container/Reduce';
+import FilterMethod from './container/Filter';
+import SortMethod from './container/Sort';
 
 const Perspective = styled.div`
 	width: 100vw;
@@ -42,12 +52,13 @@ function App(props) {
 		<ThemeProvider theme={{ mode: mode }}>
 			<>
 				<GlobalStyle />
-				<Suspense fallback={<Loader />}>
-					<Nav handleMode={handleModeChange} />
-					<Header />
-					<Transitions pageKey={props.location.key}>
-						<div className='app-container'>
-							<SubHeader />
+
+				<Nav handleMode={handleModeChange} />
+				<Header />
+				<div className='app-container'>
+					<SubHeader />
+					<Suspense fallback={<Loader />}>
+						<Transitions pageKey={props.location.key}>
 							<Switch location={props.location}>
 								<Route exact path='/' component={Home} />
 								<Route path='/map' component={MapMethod} />
@@ -57,9 +68,9 @@ function App(props) {
 								<Route path='/filter' component={FilterMethod} />
 								<Route path='/sort' component={SortMethod} />
 							</Switch>
-						</div>
-					</Transitions>
-				</Suspense>
+						</Transitions>
+					</Suspense>
+				</div>
 			</>
 		</ThemeProvider>
 	);

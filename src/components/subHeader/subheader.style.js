@@ -11,7 +11,7 @@ const SubHeaderStyle = style.div`
     margin-bottom: 50px;
     .btn-container{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         .btn-previous, .btn-next{
             display: flex;
             align-items: center;

@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import Transitions from './components/Transitions';
 import Loader from './components/loader';
 import SubHeader from './components/subHeader';
+import Footer from './components/footer';
 import { saveState, loadState } from './utils/common';
 import GlobalStyle from './style/global.style';
 
@@ -55,22 +56,23 @@ function App(props) {
 
 				<Nav handleMode={handleModeChange} />
 				<Header />
-				<div className='app-container'>
+				<div className="app-container">
 					<SubHeader />
 					<Suspense fallback={<Loader />}>
 						<Transitions pageKey={props.location.key}>
 							<Switch location={props.location}>
-								<Route exact path='/' component={Home} />
-								<Route path='/map' component={MapMethod} />
-								<Route path='/find' component={FindMethod} />
-								<Route path='/findindex' component={FindIndexMethod} />
-								<Route path='/reduce' component={ReduceMethod} />
-								<Route path='/filter' component={FilterMethod} />
-								<Route path='/sort' component={SortMethod} />
+								<Route exact path="/" component={Home} />
+								<Route path="/map" component={MapMethod} />
+								<Route path="/find" component={FindMethod} />
+								<Route path="/findindex" component={FindIndexMethod} />
+								<Route path="/reduce" component={ReduceMethod} />
+								<Route path="/filter" component={FilterMethod} />
+								<Route path="/sort" component={SortMethod} />
 							</Switch>
 						</Transitions>
 					</Suspense>
 				</div>
+				<Footer />
 			</>
 		</ThemeProvider>
 	);

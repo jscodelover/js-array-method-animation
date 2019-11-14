@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 export default ({ pageKey, children }) => (
 	<Wrapper>
-		<TransitionGroup className='transition-group'>
+		<TransitionGroup className="transition-group">
 			<CSSTransition
 				key={pageKey}
 				timeout={{ enter: 300, exit: 300 }}
-				classNames='fade'
+				classNames="fade"
 			>
-				<div className='route-section'>{children}</div>
+				<div className="route-section">{children}</div>
 			</CSSTransition>
 		</TransitionGroup>
 	</Wrapper>
@@ -39,10 +39,10 @@ const Wrapper = styled.div`
 		position: relative;
 	}
 
-	.route-section {
+	/* .route-section {
 		position: absolute;
 		width: 100%;
 		top: 0;
 		left: 0;
-	}
+	} */
 `;

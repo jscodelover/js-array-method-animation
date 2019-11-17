@@ -64,8 +64,10 @@ function Nav(props) {
 	}
 	function handleClick(data) {
 		showMenu && handleMenu(false);
-		handleSelect(data);
-		props.history.push(`/${data.value}`);
+		if (data.value !== arrayMethod.value) {
+			handleSelect(data);
+			props.history.push(`/${data.value}`);
+		}
 	}
 	const navItems = (
 		<ul>

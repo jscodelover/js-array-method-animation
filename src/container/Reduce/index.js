@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import { TweenMax, TimelineMax, Sine } from 'gsap';
 import CodePanel from '../../components/codepanel';
 import AnimationBox from '../../components/animationBox';
-import { arrayMethod } from '../../utils/data';
 import { Block, Box } from '../../components/Blocks';
-import { createData } from '../../utils/common';
+import Editor from '../../components/editor';
+import { createData, embeddLink } from '../../utils/common';
+import { arrayMethod } from '../../utils/data';
 import { ReduceStyle } from './reduce.style';
 
 function Reduce() {
@@ -134,23 +135,24 @@ function Reduce() {
 				handleClick={animateReduce}
 				className={play && 'disable-animate-btn'}
 			>
-				<Block fontSize={9} paddingLeft='4px'>
+				<Block fontSize={9} paddingLeft="4px">
 					{box(dataA)}
 				</Block>
-				<Block fontSize={9} marginTop='-50px' paddingLeft='4px'>
+				<Block fontSize={9} marginTop="-50px" paddingLeft="4px">
 					{box(dataA, refBlockA)}
 				</Block>
-				<div className='reduceFn-container'>
-					<div ref={reduceFn} className='reduceFn'>
+				<div className="reduceFn-container">
+					<div ref={reduceFn} className="reduceFn">
 						<span>Reduce Function</span>
 					</div>
 				</div>
 				{boxHide && (
-					<Block fontSize={9} paddingLeft='4px' className='result-container'>
+					<Block fontSize={9} paddingLeft="4px" className="result-container">
 						{box(dataB, refBlockB, 'absolute')}
 					</Block>
 				)}
 			</AnimationBox>
+			<Editor src={embeddLink.find(item => item.method === 'reduce').link} />
 		</ReduceStyle>
 	);
 }

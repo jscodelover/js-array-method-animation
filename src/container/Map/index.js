@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { TweenMax, Power0, TimelineMax } from 'gsap';
 import CodePanel from '../../components/codepanel';
-import { arrayMethod } from '../../utils/data';
-import { createData } from '../../utils/common';
 import { Block, Box } from '../../components/Blocks';
-import { MapStyle } from './map.style';
 import AnimationBox from '../../components/animationBox';
+import Editor from '../../components/editor';
+import { arrayMethod } from '../../utils/data';
+import { createData, embeddLink } from '../../utils/common';
+import { MapStyle } from './map.style';
 
 function Map() {
 	const mapFn = useRef(null);
@@ -97,22 +98,23 @@ function Map() {
 				handleClick={animateMap}
 				className={play && 'disable-animate-btn'}
 			>
-				<Block fontSize={11} paddingLeft='3px'>
+				<Block fontSize={11} paddingLeft="3px">
 					{box(dataA)}
 				</Block>
-				<Block fontSize={11} paddingLeft='3px' marginTop='-50px'>
+				<Block fontSize={11} paddingLeft="3px" marginTop="-50px">
 					{box(dataA, refBlockA)}
 				</Block>
-				<div className='mapFn-container'>
-					<div ref={mapFn} className='mapFn' />
+				<div className="mapFn-container">
+					<div ref={mapFn} className="mapFn" />
 					<span>Map Function</span>
 				</div>
 				{boxHide && (
-					<Block fontSize={11} paddingLeft='1px' marginTop='-50px'>
+					<Block fontSize={11} paddingLeft="1px" marginTop="-50px">
 						{box(dataB, refBlockB)}
 					</Block>
 				)}
 			</AnimationBox>
+			<Editor src={embeddLink.find(item => item.method === 'map').link} />
 		</MapStyle>
 	);
 }

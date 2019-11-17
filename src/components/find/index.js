@@ -4,7 +4,8 @@ import CodePanel from '../../components/codepanel';
 import { arrayMethod } from '../../utils/data';
 import { Block, Box } from '../../components/Blocks';
 import AnimationBox from '../../components/animationBox';
-import { colorArray } from '../../utils/common';
+import Editor from '../../components/editor';
+import { colorArray, embeddLink } from '../../utils/common';
 import { FindStyle } from './find.style';
 
 function Find(props) {
@@ -76,7 +77,7 @@ function Find(props) {
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod[find].data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod[find].function }} />
-				<div className='or'>----OR----</div>
+				<div className="or">----OR----</div>
 				<div
 					dangerouslySetInnerHTML={{
 						__html: arrayMethod[find].alternative_function
@@ -96,12 +97,13 @@ function Find(props) {
 									{owner}
 									{floor && <span>{floor[index]}</span>}
 								</Box>
-								<div className='icon'></div>
+								<div className="icon"></div>
 							</div>
 						);
 					})}
 				</Block>
 			</AnimationBox>
+			<Editor src={embeddLink.find(item => item.method === find).link} />
 		</FindStyle>
 	);
 }

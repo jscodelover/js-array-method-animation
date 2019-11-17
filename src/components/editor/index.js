@@ -10,11 +10,11 @@ function Editor(props) {
 		<EditorWrapper>
 			{loading ? <h2>Loading....</h2> : null}
 			<iframe
-				title='editor'
-				frameborder='0'
-				width='100%'
-				height='500px'
-				src='https://repl.it/@amasad/PitifulLastingWhoopingcrane?lite=true'
+				title="editor"
+				frameBorder="0"
+				width="100%"
+				height="500px"
+				src={props.src}
 				onLoad={handleOnLoad}
 			></iframe>
 		</EditorWrapper>

@@ -4,10 +4,11 @@ import theme from 'styled-theming';
 import defaultTheme from '../../style/themes';
 import CodePanel from '../../components/codepanel';
 import AnimationBox from '../../components/animationBox';
-import { arrayMethod } from '../../utils/data';
-import { colorArray } from '../../utils/common';
-import { SortStyle } from './sort.style';
 import { Block, Box } from '../../components/Blocks';
+import Editor from '../../components/editor';
+import { arrayMethod } from '../../utils/data';
+import { colorArray, embeddLink } from '../../utils/common';
+import { SortStyle } from './sort.style';
 
 function Sort() {
 	const block1 = useRef(null);
@@ -100,7 +101,7 @@ function Sort() {
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.function }} />
-				<div className='or'>----OR----</div>
+				<div className="or">----OR----</div>
 				<div
 					dangerouslySetInnerHTML={{
 						__html: arrayMethod.sortA.alternative_function
@@ -123,7 +124,7 @@ function Sort() {
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortD.data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortD.function }} />
-				<div className='or'>----OR----</div>
+				<div className="or">----OR----</div>
 				<div
 					dangerouslySetInnerHTML={{
 						__html: arrayMethod.sortD.alternative_function
@@ -141,6 +142,7 @@ function Sort() {
 					</Block>
 				)}
 			</AnimationBox>
+			<Editor src={embeddLink.find(item => item.method === 'sort').link} />
 		</SortStyle>
 	);
 }

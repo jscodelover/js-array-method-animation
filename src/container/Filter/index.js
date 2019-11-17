@@ -5,7 +5,8 @@ import { arrayMethod } from '../../utils/data';
 import { FilterStyle } from './filter.style';
 import { Block, Box } from '../../components/Blocks';
 import AnimationBox from '../../components/animationBox';
-import { colorArray } from '../../utils/common';
+import Editor from '../../components/editor';
+import { colorArray, embeddLink } from '../../utils/common';
 
 function Filter() {
 	const filterFn = useRef(null);
@@ -122,23 +123,24 @@ function Filter() {
 				handleClick={animateFilter}
 				className={play && 'disable-animate-btn'}
 			>
-				<Block fontSize={9} paddingLeft='6px'>
+				<Block fontSize={9} paddingLeft="6px">
 					{box(dataA)}
 				</Block>
-				<Block fontSize={9} paddingLeft='6px' marginTop='-50px'>
+				<Block fontSize={9} paddingLeft="6px" marginTop="-50px">
 					{box(dataA, refBlockA)}
 				</Block>
-				<div className='filterFn-container'>
-					<div ref={filterFn} className='filterFn rotate-zero'>
+				<div className="filterFn-container">
+					<div ref={filterFn} className="filterFn rotate-zero">
 						<span>Filter Function</span>
 					</div>
 				</div>
 				{boxHide && (
-					<Block fontSize={9} paddingLeft='6px'>
+					<Block fontSize={9} paddingLeft="6px">
 						{box(dataB, refBlockB)}
 					</Block>
 				)}
 			</AnimationBox>
+			<Editor src={embeddLink.find(item => item.method === 'filter').link} />
 		</FilterStyle>
 	);
 }

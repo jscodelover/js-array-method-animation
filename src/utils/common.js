@@ -46,3 +46,17 @@ export const createData = (data, ele) => {
 		return arr;
 	}, []);
 };
+
+export const embeddLink = [
+	{ method: 'map', link: 'https://repl.it/@manisha1896/myMap?lite=true' },
+	{ method: 'find', link: 'https://repl.it/@manisha1896/myFind?lite=true' },
+	{
+		method: 'findIndex',
+		link: 'https://repl.it/@manisha1896/myFindIndex?lite=true'
+	},
+	{ method: 'filter', link: 'https://repl.it/@manisha1896/myFilter?lite=true' },
+	{ method: 'reduce', link: 'https://repl.it/@manisha1896/myReduce?lite=true' },
+	{ method: 'some', link: 'https://repl.it/@manisha1896/mySome?lite=true' },
+	{ method: 'every', link: 'https://repl.it/@manisha1896/myEvery?lite=true' },
+	{ method: 'sort', link: 'https://repl.it/@manisha1896/mySort?lite=true' }
+];

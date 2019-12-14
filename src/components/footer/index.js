@@ -11,7 +11,7 @@ function Footer() {
 				</span>
 				using React Hooks and GSAP
 			</p>
-			<p className="copyright">Copyright 2019 - jscodelover</p>
+			<p className="copyright">Copyright 2019 - @jscodelover</p>
 		</FooterWapper>
 	);
 }

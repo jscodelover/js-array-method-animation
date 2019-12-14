@@ -42,8 +42,11 @@ const HeaderStyle = style.div`
                 opacity: 0;
             }
         }
-        @media(max-width: 628px){
+        @media(max-width: 1024px){
             font-size: 70px;
+        }
+        @media(max-width: 628px){
+            font-size: 50px;
         }
     }
 `;

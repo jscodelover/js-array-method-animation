@@ -19,10 +19,10 @@ const Footer = styled.div`
 	color: ${color};
 	.crafted {
 		margin-bottom: 20px;
-		font-size: 14px;
+		font-size: 16px;
 	}
 	.copyright {
-		font-size: 10px;
+		font-size: 13px;
 	}
 `;
 

@@ -27,28 +27,19 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        margin: 0;
-        font-family: 'TT Norms', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-            'Helvetica Neue', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-variant: none;
+        min-width: 768px;
+        font-family: 'Nunito', sans-serif;
         font-size: 14px;
         line-height: 1.4;
         background-color: ${bgColor};
         color: ${fontColor};
+
         text-size-adjust: auto;
         -ms-overflow-style: none;
         overflow: -moz-scrollbars-none;
         &::-webkit-scrollbar {
             width: 0 !important;
         }
-    }
-
-    code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-            monospace;
     }
 
     button:focus{
@@ -83,9 +74,31 @@ const GlobalStyle = createGlobalStyle`
     h1{
         font-size: 1.8rem;
         font-weight: 500;
-        text-decoration-line: underline;
+        text-decoration: underline;
         text-align: center;
-        margin-bottom: 50px;
+        margin: 0 0 50px;
+        padding-top: 50px ;
+    }
+
+    a{
+        text-decoration: none;
+        color:inherit;
+        cursor: pointer;
+    }
+
+    p{
+        margin: 15px 0;
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    em{
+        font-style: italic;
+        font-weight: 300;
+    }
+
+    strong{
+        font-weight: 700;
     }
 
     .d-none{
@@ -110,7 +123,7 @@ const GlobalStyle = createGlobalStyle`
 
     .customSelect {
         &__control {
-            width: 150px;
+            width: 170px;
             background-color: transparent !important;
             text-overflow: ellipsis;
             border-color: transparent !important;
@@ -124,7 +137,7 @@ const GlobalStyle = createGlobalStyle`
 
         &__menu {
             margin-top: 1px !important;
-            width: 150px !important;
+            width: 170px !important;
             background-image: linear-gradient(to right, #94999c, #2c3e50) !important;
             color: ${defaultTheme.colors.white};
             box-shadow: 0 0 0 1px hsl(0, 0%, 0%), 0 4px 11px hsl(0, 0%, 0%) !important;

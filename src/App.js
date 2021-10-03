@@ -55,9 +55,9 @@ function App(props) {
 				<GlobalStyle />
 
 				<Nav handleMode={handleModeChange} />
-				<Header />
+				{props.location.pathname === '/' && <Header />}
 				<div className="app-container">
-					<SubHeader />
+					{/* { <SubHeader />} */}
 					<Suspense fallback={<Loader />}>
 						<Transitions pageKey={props.location.key}>
 							<Switch location={props.location}>

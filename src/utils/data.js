@@ -66,8 +66,9 @@ export const arrayMethod = {
                 },</p>
             <p>];</p>`,
 		function: ` <p>const indianCitizen = peopleData.reduce(function(acc, info){</p>
-                        <p>if(info.country === 'India')</p>
-                            <p>return acc.concat(info.name);</p>
+                        <p>if(info.country === 'India'){</p>
+                            <p>&emsp;&emsp;return acc.concat(info.name);</p>
+                            <p>}</p>
                         <p>return acc;</p>    
                     <p>}, []);</p>`,
 		result: `console.log(indianCitizen);`
@@ -161,5 +162,19 @@ export const arrayMethod = {
 		data: `<p>const handler = '@jscodelover';</p>`,
 		function: `<p>const handlerArray = Array.from(handler);</p>`,
 		result: `<p>console.log(handlerArray);</p>`
+	},
+	forEach: {
+		function: `<p>// for loop</p>
+                 <br />
+                <p>const array = [1,2,3];</p>
+                <p>for (let i = 0; i < array.length; i++){</p>
+                    <p>console.log(i);</p>
+                <p>}</p>`,
+		alternative_function: `<p>// Javascript .forEach() method is just a different way of doing this.</p>
+                                <br />
+                                <p>const array = [1,2,3];</p>
+                                <p>array.forEach(function(i){</p>
+                                    <p>console.log(i);</p>
+                                <p>});</p>`
 	}
 };

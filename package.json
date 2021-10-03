@@ -13,6 +13,7 @@
   "auther": "jscodelover",
   "main": "index.js",
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "gsap": "^2.1.3",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
@@ -25,6 +26,8 @@
     "styled-theming": "^2.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,5 +54,6 @@
   },
   "bugs": {
     "url": "https://github.com/jscodelover/js-array-method-animation.git/issues"
-  }
+  },
+  "homepage": "https://jscodelover.github.io/"
 }

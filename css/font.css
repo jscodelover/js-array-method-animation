@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'TT Norms';
+    src: url('font/TTNorms-Medium.eot');
+    src: url('font/TTNorms-Medium.eot?#iefix') format('embedded-opentype'),
+         url('font/TTNorms-Medium.svg#TTNorms-Medium') format('svg'),
+         url('font/TTNorms-Medium.ttf') format('truetype'),
+         url('font/TTNorms-Medium.woff') format('woff'),
+         url('font/TTNorms-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TTNorms-Bold';
+    src: url('font/TTNorms-Bold.eot');
+    src: url('font/TTNorms-Bold.eot?#iefix') format('embedded-opentype'),
+            url('font/TTNorms-Bold.svg#TTNorms-Bold') format('svg'),
+            url('font/TTNorms-Bold.ttf') format('truetype'),
+            url('font/TTNorms-Bold.woff') format('woff'),
+            url('font/TTNorms-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'TTNorms-Regular';
+    src: url('font/TTNorms-Regular.eot');
+    src: url('font/TTNorms-Regular.eot?#iefix') format('embedded-opentype'),
+            url('font/TTNorms-Regular.svg#TTNorms-Regular') format('svg'),
+            url('font/TTNorms-Regular.ttf') format('truetype'),
+            url('font/TTNorms-Regular.woff') format('woff'),
+            url('font/TTNorms-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

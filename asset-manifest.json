@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/js-array-method-animation/static/js/main.d1e35adc.chunk.js",
+    "main.js.map": "/js-array-method-animation/static/js/main.d1e35adc.chunk.js.map",
+    "runtime-main.js": "/js-array-method-animation/static/js/runtime-main.9bdc0c42.js",
+    "runtime-main.js.map": "/js-array-method-animation/static/js/runtime-main.9bdc0c42.js.map",
+    "static/js/2.e196d51f.chunk.js": "/js-array-method-animation/static/js/2.e196d51f.chunk.js",
+    "static/js/2.e196d51f.chunk.js.map": "/js-array-method-animation/static/js/2.e196d51f.chunk.js.map",
+    "index.html": "/js-array-method-animation/index.html",
+    "precache-manifest.5635b0fbfc8e5bb594d6e2ce6d128ada.js": "/js-array-method-animation/precache-manifest.5635b0fbfc8e5bb594d6e2ce6d128ada.js",
+    "service-worker.js": "/js-array-method-animation/service-worker.js",
+    "static/js/2.e196d51f.chunk.js.LICENSE.txt": "/js-array-method-animation/static/js/2.e196d51f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9bdc0c42.js",
+    "static/js/2.e196d51f.chunk.js",
+    "static/js/main.d1e35adc.chunk.js"
+  ]
+}

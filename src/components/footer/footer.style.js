@@ -12,17 +12,25 @@ const color = theme('mode', {
 });
 
 const Footer = styled.div`
-	min-height: 180px;
-	padding-top: 72px;
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
 	background-color: ${bgColor};
 	color: ${color};
 	.crafted {
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		font-size: 16px;
 	}
 	.copyright {
-		font-size: 13px;
+		font-size: 14px;
+		a {
+			font-size: 15px;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 `;
 

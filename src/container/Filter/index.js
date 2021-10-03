@@ -106,11 +106,24 @@ function Filter() {
 	return (
 		<FilterStyle>
 			<h1>Filter Array Method</h1>
+			<p>
+				The <strong>filter()</strong> method is used when we want to select a subset
+				of multiple elements from an array.
+			</p>
+			<p>
+				In other words, it checks each element of an array against a condition and
+				adds it to a new array if it passes the test implemented by the provided
+				function.
+			</p>
+
+			<br />
+			<p>
+				Let's take an example to know how the filter method works and why this
+				method is suitable for this example.
+			</p>
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.filter.data }} />
-				<div
-					dangerouslySetInnerHTML={{ __html: arrayMethod.filter.function }}
-				/>
+				<div dangerouslySetInnerHTML={{ __html: arrayMethod.filter.function }} />
 				<div>---OR---</div>
 				<div
 					dangerouslySetInnerHTML={{
@@ -140,6 +153,23 @@ function Filter() {
 					</Block>
 				)}
 			</AnimationBox>
+			<br />
+			<p>
+				In this case, we want to get all the heroes with the Marvel franchise. We
+				pass an array and a callback function to the filter method. The filter
+				method will call the provided callback function for each element in the
+				array. If the callback function returns true then the value is passed to the
+				newly created array.
+			</p>
+			<p>
+				You can use the forEach() method or the normal for-loop for this example but
+				that will only create complications later down the line and will increase
+				the code size. We need to iterate through each element of an array and need
+				to push the value that passes the condition.
+			</p>
+
+			<br />
+			<p>Below is the implementation behind the Array.prototype.filter method. </p>
 			<Editor src={embeddLink.find(item => item.method === 'filter').link} />
 		</FilterStyle>
 	);

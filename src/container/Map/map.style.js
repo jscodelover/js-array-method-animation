@@ -5,8 +5,7 @@ const MapStyle = style.div`
         position: relative;
         .mapFn{
             width: 150px;
-            height: 120px;
-            background-image: linear-gradient(to right bottom, #5f7dac, #009dd5, #00bed6, #00d8a7, #12eb4d);
+            height: 120px;background-image: linear-gradient(to right top,#053046,#085570,#057d9b,#00a8c4,#12d5eb);
             border-radius: 20px;
             margin: 90px auto 0px;    
         }

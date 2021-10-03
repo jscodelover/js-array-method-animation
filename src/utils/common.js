@@ -48,15 +48,15 @@ export const createData = (data, ele) => {
 };
 
 export const embeddLink = [
-	{ method: 'map', link: 'https://repl.it/@manisha1896/myMap?lite=true' },
-	{ method: 'find', link: 'https://repl.it/@manisha1896/myFind?lite=true' },
+	{ method: 'map', link: 'https://repl.it/@manisha1896/myMap?embed=true' },
+	{ method: 'find', link: 'https://repl.it/@manisha1896/myFind?embed=true' },
 	{
 		method: 'findIndex',
-		link: 'https://repl.it/@manisha1896/myFindIndex?lite=true'
+		link: 'https://repl.it/@manisha1896/myFindIndex?embed=true'
 	},
-	{ method: 'filter', link: 'https://repl.it/@manisha1896/myFilter?lite=true' },
-	{ method: 'reduce', link: 'https://repl.it/@manisha1896/myReduce?lite=true' },
-	{ method: 'some', link: 'https://repl.it/@manisha1896/mySome?lite=true' },
-	{ method: 'every', link: 'https://repl.it/@manisha1896/myEvery?lite=true' },
-	{ method: 'sort', link: 'https://repl.it/@manisha1896/mySort?lite=true' }
+	{ method: 'filter', link: 'https://repl.it/@manisha1896/myFilter?embed=true' },
+	{ method: 'reduce', link: 'https://repl.it/@manisha1896/myReduce?embed=true' },
+	{ method: 'some', link: 'https://repl.it/@manisha1896/mySome?embed=true' },
+	{ method: 'every', link: 'https://repl.it/@manisha1896/myEvery?embed=true' },
+	{ method: 'sort', link: 'https://repl.it/@manisha1896/mySort?embed=true' }
 ];

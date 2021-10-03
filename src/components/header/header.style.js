@@ -16,7 +16,7 @@ const HeaderStyle = style.div`
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: 80px;
-        font-family: "Merriweather";
+        font-family: 'Karla', sans-serif;
         font-weight: 800;
         letter-spacing: 0.05em;
         line-height: 1.1em;
@@ -26,10 +26,13 @@ const HeaderStyle = style.div`
         align-items: center;
         &__text{    
             position: relative;
-            text-shadow: 8px 0px 0px rgb(35,34,34);
+            text-shadow: 11px -2px 5px rgb(28 28 28);
             color: ${defaultTheme.colors.white};
             display: inline-block;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+
             &--1{
                 top: -70%;
             }
@@ -37,7 +40,7 @@ const HeaderStyle = style.div`
                 right: -200%
             }
             &--3{
-                transform: translateY(300px);
+                transform: translateY(100px);
                 bottom: -10%;
                 opacity: 0;
             }

@@ -1,18 +1,27 @@
 import React from 'react';
-import FooterWapper from './footer.style';
+import FooterWrapper from './footer.style';
 
 function Footer() {
 	return (
-		<FooterWapper>
-			<p className="crafted">
+		<FooterWrapper>
+			<div className="crafted">
 				Crafted with{' '}
 				<span role="img" aria-label="heart">
 					❤️
-				</span>
+				</span>{' '}
 				using React Hooks and GSAP
-			</p>
-			<p className="copyright">Copyright 2019 - @jscodelover</p>
-		</FooterWapper>
+			</div>
+			<div className="copyright">
+				Copyright 2021 -{' '}
+				<a
+					href="https://www.google.com/search?q=jscodelover"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					@jscodelover
+				</a>
+			</div>
+		</FooterWrapper>
 	);
 }
 

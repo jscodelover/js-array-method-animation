@@ -98,6 +98,18 @@ function Sort() {
 	return (
 		<SortStyle>
 			<h1>Sort in Ascending Order</h1>
+
+			<p>
+				The <strong>sort()</strong> method is used for sorting the elements of an
+				array in place. It is mutating which means it modifies the original array.
+			</p>
+
+			<br />
+			<p>
+				Behind the scene it is using the normal sorting techniques. Let's take an
+				example.
+			</p>
+
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.sortA.function }} />
@@ -142,6 +154,12 @@ function Sort() {
 					</Block>
 				)}
 			</AnimationBox>
+
+			<br />
+			<p>
+				Below is the implementation behind the Array.prototype.sort method. I know
+				it may seem a bit complex but it's just normal merge sorting.
+			</p>
 			<Editor src={embeddLink.find(item => item.method === 'sort').link} />
 		</SortStyle>
 	);

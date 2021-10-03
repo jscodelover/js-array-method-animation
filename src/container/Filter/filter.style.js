@@ -8,8 +8,7 @@ const FilterStyle = style.div`
         }
         .filterFn{
             width: 150px;
-            height: 150px;        
-            background-image: linear-gradient(to right top, #053046, #085570, #057d9b, #00a8c4, #12d5eb);
+            height: 150px;        background-image: linear-gradient(to right top,#053046,#085570,#057d9b,#00a8c4,#12d5eb);
             border-radius: 20px;
             margin: 90px auto 0px;    
             & > span{

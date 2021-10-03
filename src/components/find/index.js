@@ -4,8 +4,7 @@ import CodePanel from '../../components/codepanel';
 import { arrayMethod } from '../../utils/data';
 import { Block, Box } from '../../components/Blocks';
 import AnimationBox from '../../components/animationBox';
-import Editor from '../../components/editor';
-import { colorArray, embeddLink } from '../../utils/common';
+import { colorArray } from '../../utils/common';
 import { FindStyle } from './find.style';
 
 function Find(props) {
@@ -38,11 +37,7 @@ function Find(props) {
 		handlePlay(true);
 		for (let [index, ref] of refBlock.entries()) {
 			ref.current &&
-				ref.current.classList.remove(
-					'reposition-block',
-					'right-box',
-					'wrong-box'
-				);
+				ref.current.classList.remove('reposition-block', 'right-box', 'wrong-box');
 			const t = TweenMax.fromTo(
 				ref.current,
 				0.7,
@@ -70,10 +65,9 @@ function Find(props) {
 		}
 		setTimeout(() => handlePlay(false), 8000);
 	}
-	const { find, label, owners, floor, pd_l, box } = props;
+	const { find, owners, floor } = props;
 	return (
 		<FindStyle>
-			<h1>{label} Array Method</h1>
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod[find].data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod[find].function }} />
@@ -103,7 +97,6 @@ function Find(props) {
 					})}
 				</Block>
 			</AnimationBox>
-			<Editor src={embeddLink.find(item => item.method === find).link} />
 		</FindStyle>
 	);
 }

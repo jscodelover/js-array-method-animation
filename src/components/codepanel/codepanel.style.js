@@ -26,7 +26,7 @@ const CodePanelStyle = style.div`
     width: calc(100% - 100px);
     border-radius: 10px;
     box-shadow: 2px 2px 13px 1px ${borderShadow};
-    font-family: 'Fira Code', monospace;
+    font-family: 'Space Mono', monospace;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
@@ -49,6 +49,11 @@ const CodePanelStyle = style.div`
             @media (max-width: 628px){
                 letter-spacing: -0.4px;
             }
+        }
+        p{
+            font-size: 14px;
+            margin: 0;
+            line-height: initial;
         }
         .or{
             margin: 10px 0px;

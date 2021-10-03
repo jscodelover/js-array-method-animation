@@ -89,6 +89,19 @@ function Map() {
 	return (
 		<MapStyle>
 			<h1>Map Array Method</h1>
+			<p>
+				The <strong>map()</strong> method creates a new array with the result of
+				calling a provided function on every element in the calling array. In other
+				words, it creates a new array. Each element of this array is the output of a
+				function that takes each element of an array as an input. It is used when we
+				want to transform elements in an array.
+			</p>
+
+			<br />
+			<p>
+				Let's take an example to know how the map method works and why this method
+				is suitable for this example.
+			</p>
 			<CodePanel>
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.data }} />
 				<div dangerouslySetInnerHTML={{ __html: arrayMethod.map.function }} />
@@ -114,6 +127,31 @@ function Map() {
 					</Block>
 				)}
 			</AnimationBox>
+			<br />
+			<p>
+				In this case, we have an array of objects with each object holding the
+				property name and likes, we want to create an object with a property name
+				and value will be a food item that a person likes. We pass an array and a
+				callback function to the map() method. The map() method will call the
+				provided callback function for each element in the array and creates a new
+				array by manipulating the values.
+			</p>
+
+			<p>
+				<em>
+					Note: <br />
+					Since the map method builds a new array, using it when you aren't using the
+					returned array is an anti-pattern. In that case use forEach() or for loop
+					instead. You shouldn't be using a map method when :
+					<br />
+					A) You're not using the array map() returns, or
+					<br />
+					B) You're not returning a value from the callback.
+				</em>
+			</p>
+
+			<br />
+			<p>Below is the implementation behind the Array.prototype.map method. </p>
 			<Editor src={embeddLink.find(item => item.method === 'map').link} />
 		</MapStyle>
 	);

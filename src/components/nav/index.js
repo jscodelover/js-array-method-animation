@@ -12,20 +12,20 @@ function Nav(props) {
 	const navRef = useRef(null);
 	const options = [
 		{
-			value: 'filter',
-			label: 'Filter Method'
-		},
-		{
 			value: 'map',
 			label: 'Map Method'
 		},
 		{
-			value: 'find',
-			label: 'Find Method'
+			value: 'filter',
+			label: 'Filter Method'
 		},
 		{
 			value: 'findIndex',
 			label: 'Find-Index Method'
+		},
+		{
+			value: 'find',
+			label: 'Find Method'
 		},
 		{
 			value: 'reduce',
@@ -37,13 +37,20 @@ function Nav(props) {
 		}
 	];
 
+	const {
+		location: { pathname }
+	} = props;
+
 	useEffect(() => {
-		const {
-			location: { pathname }
-		} = props;
-		const arMethod = options.find(method => pathname.includes(method.value));
-		handleSelect(arMethod);
-	}, [props]);
+		if (pathname === '/') {
+			handleSelect(null);
+		} else {
+			const arMethod = options.find(method => pathname.includes(method.value));
+			handleSelect(arMethod);
+		}
+		navBackground();
+	}, [pathname]);
+
 	useEffect(() => {
 		handleScroll();
 		window.addEventListener('scroll', handleScroll);
@@ -53,22 +60,32 @@ function Nav(props) {
 			window.addEventListener('resize', handleScroll);
 		};
 	}, []);
+
 	function handleScroll() {
 		handleResize(window.innerWidth);
 		screenWidth > 628 && showMenu && handleMenu(false);
+		navBackground();
+	}
+
+	function navBackground() {
 		navRef.current &&
 			TweenLite.to(navRef.current, 1, {
-				background: window.pageYOffset > 20 ? 'rgba(0, 0, 0, 0.6)' : 'none',
+				background:
+					(pathname !== '/' && 'rgba(0, 0, 0, 0.6)') || window.pageYOffset > 20
+						? 'rgba(0, 0, 0, 0.6)'
+						: 'none',
 				ease: Power3.easeOut
 			});
 	}
+
 	function handleClick(data) {
 		showMenu && handleMenu(false);
-		if (data.value !== arrayMethod.value) {
+		if (!arrayMethod || data.value !== arrayMethod.value) {
 			handleSelect(data);
 			props.history.push(`/${data.value}`);
 		}
 	}
+
 	const navItems = (
 		<ul>
 			<li onClick={() => handleSelect(null)}>
@@ -93,7 +110,6 @@ function Nav(props) {
 					placeholder="Select Method"
 				/>
 			</li>
-			<li>About Me</li>
 			<li>
 				<button
 					className="theme-btn"
@@ -114,6 +130,7 @@ function Nav(props) {
 			</li>
 		</ul>
 	);
+
 	return showMenu && screenWidth < 628 ? (
 		<SideBar>
 			<div className="backdrop" />

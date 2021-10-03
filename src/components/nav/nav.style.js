@@ -34,6 +34,7 @@ const NavStyle = style.nav`
         justify-content: flex-end;
         li{
             color: ${defaultTheme.colors.white};
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             &:nth-child(2){
@@ -41,7 +42,9 @@ const NavStyle = style.nav`
                 margin-right: 15px;
             }
             .theme-btn{
-                padding: 3px 5px;
+                width: 20px;
+                height: 20px;
+                padding: 2px 0 0;
                 border-radius: 50%;
                 cursor: pointer;
                 margin-left: 23px;
